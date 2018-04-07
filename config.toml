@@ -1,11 +1,41 @@
-baseURL = "https://elsacp.netlify.com/"
+baseURL = "/"
 languageCode = "en-us"
 title = "ElsaCP - Easy Linux Server Administration Control Panel"
-theme = "kube"
+description = "ElsaCP is Simplified Open Source Linux Control Panel"
 author = "Aris Ripandi"
+theme = "kube"
 
-[Params.seo.webmaster_verifications]
-  google = "" # Optional, Google verification code
-  bing = "" # Optional, Bing verification code
-  alexa = "" # Optional, Alexa verification code
-  yandex = "" # Optional, Yandex verification code
+[params]
+  noindex_kinds = [
+    "taxonomy",
+    "taxonomyTerm"
+  ]
+
+Paginate = 4
+[Params]
+  RSSLink = "/index.xml"
+  author = "Aris Ripandi" # add your company name
+  github = "elsacp" # add your github profile name
+  twitter = "elsacp" # add your twitter profile
+  email = "elsacp@protonmail.com"
+
+[[menu.main]]
+    name = "Features"
+    weight = -200
+    url = "#kube-features"
+[[menu.main]]
+    name = "Install"
+    weight = -200
+    url = "/docs/install"
+[[menu.main]]
+    name = "Docs"
+    weight = -100
+    url = "/docs/"
+[[menu.main]]
+    name = "Blog"
+    weight = -100
+    url = "/blog/"
+[[menu.main]]
+    name = "FAQs"
+    weight = -100
+    url = "/faq/"

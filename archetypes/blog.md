@@ -1,6 +1,6 @@
 +++
-title = "Blog"
-description = "Blog and News"
+title = ""
+description = ""
 weight = 20
 draft = false
 +++

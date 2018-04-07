@@ -1,8 +1,9 @@
 +++
-title = ""
+title = "Artikel Pertama"
 description = ""
 weight = 20
 draft = false
-bref = ""
-toc = true
 +++
+
+
+Contoh doank
