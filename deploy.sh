@@ -6,7 +6,7 @@ if [[ ! -f "/usr/bin/minify" ]]; then
     sudo chmod +x /usr/bin/minify
 fi
 
-minify -r --match=\.html -o public/ public
+hugo && minify -r --match=\.html -o public/ public
 
 read -p "Commit description: " desc
 git add . && \
