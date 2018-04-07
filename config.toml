@@ -1,0 +1,11 @@
+baseURL = "https://elsacp.net/"
+languageCode = "en-us"
+title = "ElsaCP - Easy Linux Server Administration Control Panel"
+theme = "kube"
+author = "Aris Ripandi"
+
+[Params.seo.webmaster_verifications]
+  google = "" # Optional, Google verification code
+  bing = "" # Optional, Bing verification code
+  alexa = "" # Optional, Alexa verification code
+  yandex = "" # Optional, Yandex verification code
