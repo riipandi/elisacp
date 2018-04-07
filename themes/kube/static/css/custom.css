@@ -1,6 +1,7 @@
 body.page-kube{background-image:url(../img/bg.jpg); background-repeat: no-repeat;}
 div#top-brand {font-weight: bold; font-size: 18px;}
-a, a:hover {text-decoration: none; !important}
-a {color: #4e4ed8; !important}
-a:hover {color: #242493; !important}
-#hero h1 {font-weight: bold;}
+a, a:hover {text-decoration: none !important;}
+div#top-brand a {color: #4e4ed8 !important;}
+a:hover {color: #242493 !important;}
+#hero h1 {font-weight: 500; color: #242493; text-shadow: 2px 2px #6086c9;}
+nav#top-nav-extra a {font-weight: bold;}
