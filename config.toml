@@ -5,6 +5,16 @@ description = "ElsaCP is Simplified Open Source Linux Control Panel"
 author = "Aris Ripandi"
 theme = "kube"
 
+disableHugoGeneratorInject = true
+canonifyURLs = true
+enableRobotsTXT = true
+googleAnalytics = "UA-113965807-1"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [params]
   noindex_kinds = [
     "taxonomy",
