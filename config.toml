@@ -32,7 +32,7 @@ Paginate = 4
 [[menu.main]]
     name = "Features"
     weight = -200
-    url = "#kube-features"
+    url = "#features"
 [[menu.main]]
     name = "Install"
     weight = -200
