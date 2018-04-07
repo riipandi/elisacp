@@ -11,5 +11,5 @@ hugo && minify -r --match=\.html -o public/ public
 #read -p "Commit description: " desc
 desc="Change $(date '+%d %B %Y %H:%M:%S')"
 git add . && git add -u && git commit -m "$desc"
-echo -e "\nPush: $desc" && git push origin master
+echo -e "\nUploading: $desc\n" && git push origin master
 
