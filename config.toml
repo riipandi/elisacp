@@ -1,4 +1,4 @@
-baseURL = "https://elsacp.net/"
+baseURL = "https://elsacp.netlify.com/"
 languageCode = "en-us"
 title = "ElsaCP - Easy Linux Server Administration Control Panel"
 theme = "kube"
