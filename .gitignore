@@ -1,12 +1,45 @@
-# Hugo default output directory
-/public
-
-## OS Files
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# OSX
+# Python essentials
+__pycache__/
+.parcel-cache/
+.cache/
 .DS_Store
+.python-version
+*.py[cod]
+*$py.class
+*.manifest
+*.egg-info
+*.sqlite
+*.db
+*.egg
+*.log
+*.mo
+*.pot
+*.pyc
+*.pyo
+*.so
+*.spec
+*.whoosh
+
+eggs/
+wheels/
+venv/
+dist/
+MANIFEST
+Pipfile.lock
+.idea/
+.env
+.env.production
+.env.staging
+.env.testing
+
+# npm stuff
+/node_modules
+package-lock.json
+yarn-error.log
+npm-debug.log
+yarn.lock
+
+# Project specific
+static/assets
+storage/logs/*
+!storage/logs/.gitkeep

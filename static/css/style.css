@@ -1,0 +1,8 @@
+body {
+    background: #dedede;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-wrap {
+    min-height: 100vh;
+}
