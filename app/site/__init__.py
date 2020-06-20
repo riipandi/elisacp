@@ -5,9 +5,8 @@ from flask import Blueprint, render_template
 site = Blueprint('site', __name__)
 
 # Load komponen modul
-from .welcome import *
-from .contoh import *
-from .cekdb import *
+from .home import *
+from .auth import *
 
 # Error page handler
 @site.errorhandler(404)
