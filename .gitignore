@@ -40,6 +40,12 @@ npm-debug.log
 yarn.lock
 
 # Project specific
-static/assets
 storage/logs/*
 !storage/logs/.gitkeep
+
+static/*
+!static/images
+!static/favicon.ico
+!static/favicon.png
+!static/robots.txt
+!static/manifest.json

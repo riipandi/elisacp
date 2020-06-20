@@ -2,10 +2,10 @@
     "name": "elsacp-webui",
     "version": "0.1.0",
     "engines": {
-        "node": ">= 2.18.1",
+        "node": ">= 12.18.1",
         "npm": ">= 6.14.5"
     },
-    "description": "Boilerplate aplikasi Flask",
+    "description": "ElsaCP Web User Interface",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/altarisdev/elsacp-webui.git"
@@ -18,8 +18,8 @@
     "homepage": "https://github.com/altarisdev/elsacp-webui#readme",
     "scripts": {
         "clean": "rimraf ./static/assets",
-        "build": "npm run clean && parcel build static/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
-        "watch": "npm run clean && parcel watch static/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
+        "build": "npm run clean && parcel build resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
+        "watch": "npm run clean && parcel watch resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
@@ -34,6 +34,5 @@
         "jquery": "^3.5.1",
         "node-sass": "^4.14.1",
         "popper.js": "^1.16.1"
-    },
-    "heroku-run-build-script": true
+    }
 }

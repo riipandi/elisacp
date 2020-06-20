@@ -8,7 +8,7 @@ db = SQLAlchemy()
 
 # Path constants
 BASE_PATH = Path('.').resolve()
-TEMPLATE_PATH = os.path.join(BASE_PATH, 'templates/')
+TEMPLATE_PATH = os.path.join(BASE_PATH, 'resources/templates/')
 STATIC_PATH = os.path.join(BASE_PATH, 'static/')
 
 def create_app():
