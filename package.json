@@ -1,42 +1,42 @@
 {
-    "name": "elsacp-webui",
-    "version": "0.1.0",
-    "engines": {
-        "node": ">= 12.18.1",
-        "npm": ">= 6.14.5"
-    },
-    "description": "ElsaCP Web User Interface",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/altarisdev/elsacp-webui.git"
-    },
-    "author": "Aris Ripandi <riipandi@gmail.com> (github.com/riipandi)",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/altarisdev/elsacp-webui/issues"
-    },
-    "homepage": "https://github.com/altarisdev/elsacp-webui#readme",
-    "scripts": {
-        "clean": "rimraf ./static/assets",
-        "build:dev": "npm run clean && cross-env NODE_ENV=development parcel build resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
-        "build:prod": "npm run clean && cross-env NODE_ENV=production parcel build resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
-        "watch": "npm run clean && cross-env NODE_ENV=development parcel watch resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
-        "test": "echo \"Error: no test sspecified\" && exit 1"
-    },
-    "devDependencies": {
-        "cross-env": "^7.0.2",
-        "rimraf": "^3.0.2",
-        "parcel-bundler": "^1.12.4",
-        "postcss-modules": "^2.0.0"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.1",
-        "@tailwindcss/ui": "^0.3.0",
-        "axios": "^0.19.2",
-        "lodash": "^4.17.15",
-        "cleave.js": "^1.5.10",
-        "prettier": "^2.0.5",
-        "resolve-url-loader": "^3.1.1",
-        "tailwindcss": "^1.4.6"
-    }
+  "name": "elsacp-webui",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">= 12.18.1",
+    "npm": ">= 6.14.5"
+  },
+  "description": "ElsaCP Web User Interface",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altarisdev/elsacp-webui.git"
+  },
+  "author": "Aris Ripandi <riipandi@gmail.com> (github.com/riipandi)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/altarisdev/elsacp-webui/issues"
+  },
+  "homepage": "https://github.com/altarisdev/elsacp-webui#readme",
+  "scripts": {
+    "clean": "rimraf ./static/assets",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development parcel build resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
+    "build:prod": "npm run clean && cross-env NODE_ENV=production parcel build resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
+    "watch": "npm run clean && cross-env NODE_ENV=development parcel watch resources/js/application.js -d static/assets --public-url . --cache-dir .parcel-cache",
+    "test": "echo \"Error: no test sspecified\" && exit 1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "rimraf": "^3.0.2",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^2.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "@tailwindcss/ui": "^0.3.0",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15",
+    "cleave.js": "^1.6.0",
+    "prettier": "^2.0.5",
+    "resolve-url-loader": "^3.1.1",
+    "tailwindcss": "^1.4.6"
+  }
 }
