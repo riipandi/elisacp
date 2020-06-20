@@ -1,16 +1,12 @@
 /* This injects Tailwind's base styles */
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+@tailwind base;
+@tailwind components;
 
 /* Here you would add any of your custom component */
-
 @import '@fortawesome/fontawesome-free/css/all.css';
-/* @import 'components/base.css'; */
-/* @import 'components/error.css'; */
 
 /* Injects all of Tailwind's utility classes, generated based on your config file */
-@import 'tailwindcss/utilities';
+@tailwind utilities;
 
 /* Here you would add any custom utilities you need that don't come out of the box with Tailwind */
 
