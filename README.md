@@ -1,9 +1,9 @@
 # LISA Control Panel
 
 ![Release](https://img.shields.io/github/release/riipandi/lisacp.svg)
-![Test](https://github.com/riipandi/lisacp/workflows/Test/badge.svg)
+<!-- ![Test](https://github.com/riipandi/lisacp/workflows/Test/badge.svg)
 ![Security](https://github.com/riipandi/lisacp/workflows/Security/badge.svg)
-![Linter](https://github.com/riipandi/lisacp/workflows/Linter/badge.svg)
+![Linter](https://github.com/riipandi/lisacp/workflows/Linter/badge.svg) -->
 
 Linux Server Administration Control Panel (LisaCP). Manage linux servers without hassle.
 
@@ -22,7 +22,7 @@ GRANT ALL PRIVILEGES ON `lisacpdb`.* TO `lisacpdb`@`localhost`
 
 ### Development
 ```sh
-go run app.go
+make rundev
 ```
 
 > Go to `http://localhost:2080`:
