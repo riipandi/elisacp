@@ -6,6 +6,7 @@ import (
 	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
 	"github.com/riipandi/lisacp/cmd/app/database"
 	"github.com/riipandi/lisacp/cmd/app/routes"
+	"github.com/riipandi/lisacp/cmd/app/utils"
 	"log"
 
 	"flag"
@@ -28,6 +29,9 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Prefork: *prod, // go run main.go -prod
 	})
+
+	// Prepare all the things
+	utils.PrepareEnvironment()
 
 	// Middleware
 	app.Use(recover.New())

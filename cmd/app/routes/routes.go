@@ -13,4 +13,7 @@ func SetupRoutes(app *fiber.App) {
 	route.Get("/user/:id", ctr.GetUser)
 	route.Post("/user", ctr.NewUser)
 	route.Delete("/user/:id", ctr.DeleteUser)
+
+	route.Post("/upload-single", ctr.UploadSingleFile)
+	route.Post("/upload-multi", ctr.UploadMultiFile)
 }

@@ -25,7 +25,7 @@ func NewUser(c *fiber.Ctx) error {
 	db := database.DBConn
 	user := new(User)
 	if err := c.BodyParser(user); err != nil {
-		return c.Status(503).JSON(err)
+		return c.Status(500).JSON(err)
 	}
 	db.Create(&user)
 	return c.JSON(user)
