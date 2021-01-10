@@ -1,51 +1,49 @@
-# Python essentials
-__pycache__/
-.parcel-cache/
-.cache/
+# Essentials
 .DS_Store
-.python-version
-*.py[cod]
-*$py.class
-*.manifest
-*.egg-info
-*.sqlite
-*.db
-*.egg
-*.log
-*.mo
-*.pot
-*.pyc
-*.pyo
-*.so
-*.spec
-*.whoosh
-
-eggs/
-wheels/
-venv/
-dist/
-MANIFEST
-Pipfile.lock
-.idea/
+.DS_Store?
 .env
 .env.production
-.env.staging
 .env.testing
+.Trashes
+*.sqlite
+*.sqlite-journal
+*.idea/*
+*.idea
+*.idea/.*
+Thumbs.db
 
-# npm stuff
-/node_modules
-package-lock.json
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.glide/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Golang stuff
+*_test.go
+go.sum
+
+# Javascript stuff
 yarn-error.log
 npm-debug.log
+package-lock.json
+pnpm-lock.yaml
 yarn.lock
 
-# Project specific
-storage/logs/*
-!storage/logs/.gitkeep
-
-static/*
-!static/images
-!static/favicon.ico
-!static/favicon.png
-!static/robots.txt
-!static/manifest.json
+# Project stuff
+target/
+cmd/app/static/public/*
+!cmd/app/static/public/.gitkeep

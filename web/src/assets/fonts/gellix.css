@@ -1,0 +1,152 @@
+/*   Fonts taken from: http://www.cufonfonts.com   */
+
+/* ------------------------------------------- Font weight 100 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: local('Gellix Thin'), url('GellixThin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 100;
+  font-display: swap;
+  src: local('Gellix Thin Italic'), url('GellixThinItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 200 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: local('Gellix Light'), url('GellixLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 200;
+  font-display: swap;
+  src: local('Gellix Light Italic'), url('GellixLightItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 300 -------------------------------------------  */
+/* @font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Metropolis Light'), url('Metropolis-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Metropolis Light Italic'), url('Metropolis-LightItalic.woff') format('woff');
+} */
+
+/* ------------------------------------------- Font weight 400 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Gellix Regular'), url('GellixRegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Gellix Regular Italic'), url('GellixRegularItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 500 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Gellix Medium'), url('GellixMedium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Gellix Medium Italic'), url('GellixMediumItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 600 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Gellix SemiBold'), url('GellixSemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Gellix SemiBold Italic'), url('GellixSemiBoldItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 700 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Gellix Bold'), url('GellixBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Gellix Bold Italic'), url('GellixBoldItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 800 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Gellix ExtraBold'), url('GellixExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 800;
+  font-display: swap;
+  src: local('Gellix ExtraBold Italic'), url('GellixExtraBoldItalic.woff') format('woff');
+}
+
+/* ------------------------------------------- Font weight 900 -------------------------------------------  */
+@font-face {
+  font-family: 'Gellix';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Gellix Black'), url('GellixBlack.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gellix';
+  font-style:Italic;
+  font-weight: 900;
+  src: local('Gellix Black Italic'), url('GellixBlackItalic.woff') format('woff');
+}
