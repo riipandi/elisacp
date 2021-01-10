@@ -20,7 +20,7 @@ func UploadSingleFile(c *fiber.Ctx) error {
 
 	return c.Status(200).JSON(fiber.Map{
 		"message": "File uploaded to " + targetPath,
-		"code": 200,
+		"status": "success",
 	})
 }
 
@@ -46,13 +46,13 @@ func UploadMultiFile(c *fiber.Ctx) error {
 		if err != nil {
 			return c.Status(500).JSON(fiber.Map{
 				"message": "Failed to upload files",
-				"code": 500,
+				"status": "error",
 			})
 		}
 	}
 
 	return c.Status(200).JSON(fiber.Map{
 		"message": "Files has been uploaded",
-		"code": 200,
+		"status": "success",
 	})
 }
