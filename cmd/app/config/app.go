@@ -5,5 +5,7 @@ import (
 )
 
 var (
-	AppSecret = utils.GetEnVar("APP_SECRET")
+	AppSecret   = utils.GetEnVar("APP_SECRET")
+	SslCertFile = utils.GetEnVar("SSL_CERT_FILE")
+	SslKeyFile  = utils.GetEnVar("SSL_KEY_FILE")
 )

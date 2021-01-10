@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"flag"
+	"github.com/riipandi/lisacp/cmd/app/config"
 	"log"
 
 	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
@@ -22,7 +23,7 @@ const staticDir = "./cmd/app/static"
 var (
 	port = flag.String("port", ":2080", "Port to listen on")
 	prod = flag.Bool("prod", false, "Enable prefork in Production")
-	sslEnable = flag.Bool("ssl", true, "Enable HTTPS protocol")
+	sslEnable = flag.Bool("sslEnable", true, "Enable HTTPS protocol")
 	sslPort = flag.String("sslPort", ":2083", "Port to listen on")
 )
 
@@ -70,9 +71,7 @@ func main() {
 	if *sslEnable {
 		go func() {
 			// Create tls certificate
-			cer, err := tls.LoadX509KeyPair(
-				"./configs/certs/default-ssl.cert",
-				"./configs/certs/default-ssl.key")
+			cer, err := tls.LoadX509KeyPair(config.SslCertFile, config.SslKeyFile)
 
 			if err != nil { log.Fatal(err) }
 			config := &tls.Config{Certificates: []tls.Certificate{cer}}
