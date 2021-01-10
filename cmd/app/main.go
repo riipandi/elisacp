@@ -3,7 +3,6 @@ package main
 import (
 	"crypto/tls"
 	"flag"
-	"fmt"
 	"log"
 
 	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
@@ -16,7 +15,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/gofiber/websocket/v2"
 )
 
 const staticDir = "./cmd/app/static"
@@ -42,7 +40,7 @@ func main() {
 	app.Use(logger.New())
 	app.Use(cors.New())
 
-	// Middleware for websocket
+	// Middleware for websocket with prefix /ws
 	app.Use("/ws", func(c *fiber.Ctx) error {
 		if c.Get("host") == "localhost:2030" {
 			c.Locals("Host", "Localhost:2030")
@@ -57,24 +55,7 @@ func main() {
 
 	// Create api endpoint
 	router.SetupRoutes(app)
-
-	// Upgraded websocket request
-	app.Get("/ws", websocket.New(func(c *websocket.Conn) {
-		fmt.Println(c.Locals("Host")) // "Localhost:2030"
-		for {
-			mt, msg, err := c.ReadMessage()
-			if err != nil {
-				log.Println("read:", err)
-				break
-			}
-			log.Printf("recv: %s", msg)
-			err = c.WriteMessage(mt, msg)
-			if err != nil {
-				log.Println("write:", err)
-				break
-			}
-		}
-	}))
+	router.SetupWebsocketRoutes(app)
 
 	// Setup static files and SPA router for frontend
 	app.Static("/", staticDir + "/public")
