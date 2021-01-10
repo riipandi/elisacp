@@ -34,7 +34,6 @@ vendor/
 
 # Golang stuff
 *_test.go
-go.sum
 
 # Javascript stuff
 yarn-error.log
