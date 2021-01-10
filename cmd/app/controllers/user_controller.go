@@ -1,29 +1,54 @@
 package controllers
 
 import (
-	"github.com/riipandi/lisacp/cmd/app/database"
-	"github.com/riipandi/lisacp/cmd/app/models"
-
 	"github.com/gofiber/fiber/v2"
+	"github.com/riipandi/lisacp/cmd/app/database"
+	. "github.com/riipandi/lisacp/cmd/app/models"
 )
 
-// UserGet returns a user
-func UserList(c *fiber.Ctx) error {
-	users := database.Get()
-	return c.JSON(fiber.Map{
-		"success": true,
-		"user":    users,
-	})
+func GetUsers(c *fiber.Ctx) error {
+	db := database.DBConn
+	var users []User
+	db.Find(&users)
+	return c.JSON(users)
 }
 
-// UserCreate registers a user
-func UserCreate(c *fiber.Ctx) error {
-	user := &models.User{
-		Name: c.FormValue("user"),
+func GetUser(c *fiber.Ctx) error {
+	id := c.Params("id")
+	db := database.DBConn
+	var user User
+	db.Find(&user, id)
+	return c.JSON(user)
+}
+
+func NewUser(c *fiber.Ctx) error {
+	db := database.DBConn
+	user := new(User)
+	if err := c.BodyParser(user); err != nil {
+		return c.Status(503).JSON(err)
 	}
-	database.Insert(user)
-	return c.JSON(fiber.Map{
-		"success": true,
-		"user":    user,
+	db.Create(&user)
+	return c.JSON(user)
+}
+
+func DeleteUser(c *fiber.Ctx) error {
+	id := c.Params("id")
+	db := database.DBConn
+
+	var user User
+	db.First(&user, id)
+
+	if user.Name == "" {
+		return c.Status(500).JSON(fiber.Map{
+			"message": "No User found with ID " + id,
+			"code": 500,
+		})
+	}
+
+	db.Delete(&user)
+
+	return c.Status(200).JSON(fiber.Map{
+		"message": "User successfully deleted",
+		"code": 200,
 	})
 }

@@ -7,7 +7,7 @@ import (
 // Index returns welcome message
 func Index(c *fiber.Ctx) error {
     return c.JSON(fiber.Map{
-        "message": "LISA Control Panel API",
+        "message": "This is LisaCP API",
     })
 }
 
