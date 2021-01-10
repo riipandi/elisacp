@@ -5,7 +5,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
 	"github.com/riipandi/lisacp/cmd/app/database"
-	"github.com/riipandi/lisacp/cmd/app/routes"
+	"github.com/riipandi/lisacp/cmd/app/database/seeder"
+	"github.com/riipandi/lisacp/cmd/app/router"
 	"github.com/riipandi/lisacp/cmd/app/utils"
 	"log"
 
@@ -39,13 +40,13 @@ func main() {
 	app.Use(cors.New())
 
 	// Initialize database connection
-	database.InitializeConnection()
-	defer database.CloseConnection()
+	database.ConnectDB()
+	seeder.DatabaseSeeder(database.DBConn)
 
-	// Create api endpoint with group
-	routes.SetupRoutes(app)
+	// Create api endpoint
+	router.SetupRoutes(app)
 
-	// Setup static files and SPA routes for frontend
+	// Setup static files and SPA router for frontend
 	app.Static("/", staticDir + "/public")
 	app.Get("/*", func(ctx *fiber.Ctx) error {
 		return ctx.SendFile(staticDir + "/public/index.html")
