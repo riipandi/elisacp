@@ -6,13 +6,13 @@ REVISION := $(shell git rev-parse --short HEAD)
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n')
 LDFLAGS := "-X $(PACKAGE).GitRevision=$(REVISION) -X $(PACKAGE).GitBranch=$(BRANCH)"
 
-all: clean_all build_backend build_cli
+all: clean_all build_backend build_cli compile
 
 build_cli:
-	cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)
+	cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/build/$(CLI_NAME)
 
 build_backend: build_frontend
-	cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)
+	cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/build/$(APP_NAME)
 
 build_frontend: clean
 	cd ./web && npm run build && cp -r build/* ../cmd/app/static/public/ && cd -
@@ -25,11 +25,17 @@ clean:
 	touch cmd/app/static/public/.gitkeep
 
 clean_all: clean
-	rm -fr target/*
+	rm -fr $(BASEPATH)/target/*
 
-compile:
-	GOARCH=amd64 GOOS=darwin go build -i -o target/release/$(APP_NAME)-darwin-x64
-	GOARCH=amd64 GOOS=linux go build -i -o target/release/$(APP_NAME)-linux-x64
+compile_cli:
+	GOARCH=amd64 GOOS=darwin cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-darwin-x64
+	GOARCH=amd64 GOOS=linux cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-linux-x64
+
+compile_app:
+	GOARCH=amd64 GOOS=darwin cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-darwin-x64
+	GOARCH=amd64 GOOS=linux cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-linux-x64
+
+compile: compile_cli compile_app
 
 dev_frontend:
 	cd ./web && npm run start
@@ -41,4 +47,4 @@ rundev: build_frontend
 	go run cmd/app/main.go
 
 runprod:
-	./target/release/$(APP_NAME)
+	./target/build/$(APP_NAME)
