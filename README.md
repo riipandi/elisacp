@@ -1,12 +1,12 @@
 # LISA Control Panel
 
-![Release](https://img.shields.io/github/release/riipandi/lisacp.svg)
-<!-- ![Test](https://github.com/riipandi/lisacp/workflows/Test/badge.svg)
-![Security](https://github.com/riipandi/lisacp/workflows/Security/badge.svg)
-![Linter](https://github.com/riipandi/lisacp/workflows/Linter/badge.svg) -->
+![Release](https://img.shields.io/github/release/riipandi/elisacp.svg)
+<!-- ![Test](https://github.com/riipandi/elisacp/workflows/Test/badge.svg)
+![Security](https://github.com/riipandi/elisacp/workflows/Security/badge.svg)
+![Linter](https://github.com/riipandi/elisacp/workflows/Linter/badge.svg) -->
 
-Linux Server Administration Control Panel (LisaCP). Manage linux servers without hassle.
-LisaCP is an open source Linux Control Panel. It's written in Golang and React and runs 
+Linux Server Administration Control Panel (ElisaCP). Manage linux servers without hassle.
+ElisaCP is an open source Linux Control Panel. It's written in Golang and React and runs 
 as a single Linux binary with MySQL or PostgreSQL. Use the features you like, for example, 
 create virtualhost, manage MariaDB PostgreSQL database, etc, with full access to source code.
 
@@ -17,9 +17,9 @@ __Important Note:__ *This project still heavy development, not ready to use at p
 ## Quick Start
 ### Prepare Database
 ```sql
-DROP USER IF EXISTS `lisacpdb`@`localhost`;
-DROP DATABASE IF EXISTS `lisacpdb`; CREATE DATABASE `lisacpdb`;
-GRANT ALL PRIVILEGES ON `lisacpdb`.* TO `lisacpdb`@`localhost` 
+DROP USER IF EXISTS `elisacpdb`@`localhost`;
+DROP DATABASE IF EXISTS `elisacpdb`; CREATE DATABASE `elisacpdb`;
+GRANT ALL PRIVILEGES ON `elisacpdb`.* TO `elisacpdb`@`localhost` 
     IDENTIFIED BY 'securepwd' WITH GRANT OPTION;
 ```
 
@@ -35,8 +35,8 @@ make rundev
 /
 --/assets     : Assets files (images, logos, etc).
 --/cmd        : Main application.
-----/app      : API and UI application.
-----/cli      : CLI application.
+----/elisa    : CLI application.
+----/elisacp  : API and UI application.
 --/configs    : Configuration file templates or default configs.
 --/docs       : Project documentation written in Markdown.
 --/init       : System init (systemd) and process manager configs.

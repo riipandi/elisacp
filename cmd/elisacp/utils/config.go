@@ -17,7 +17,7 @@ func getEnv() string {
 // GetEnVar return value from dotenv file
 func GetEnVar(key string) string {
 	if getEnv() == "production" {
-		godotenv.Load("/etc/default/lisacp")
+		godotenv.Load("/etc/default/elisacp")
 	} else {
 		godotenv.Load(".env")
 	}

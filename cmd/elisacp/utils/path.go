@@ -21,9 +21,9 @@ func SetWorkingDirDirectory() string {
 
 	switch os {
 		case "darwin":
-			workingDir = "/usr/local/opt/lisacp"
+			workingDir = "/usr/local/opt/elisacp"
 		case "linux":
-			workingDir = "/opt/lisacp"
+			workingDir = "/opt/elisacp"
 		default:
 			workingDir = "OS not supported"
 	}

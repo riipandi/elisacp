@@ -1,5 +1,5 @@
 {
-  "name": "lisacp-website",
+  "name": "elisacp-website",
   "private": true,
   "scripts": {
     "dev": "next dev",

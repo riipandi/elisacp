@@ -1,5 +1,5 @@
 {
-    "name": "lisacp-ui",
+    "name": "elisacp-ui",
     "private": true,
     "scripts": {
         "start": "react-scripts start",

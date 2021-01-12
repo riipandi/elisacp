@@ -1,8 +1,8 @@
 package seeder
 
 import (
-	"github.com/riipandi/lisacp/cmd/app/model"
-	"github.com/riipandi/lisacp/cmd/app/utils"
+	"github.com/riipandi/elisacp/cmd/elisacp/model"
+	"github.com/riipandi/elisacp/cmd/elisacp/utils"
 )
 
 var password, _ = utils.HashPassword("passw0rd")

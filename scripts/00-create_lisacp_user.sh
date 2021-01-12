@@ -1,11 +1,11 @@
-sudo mkdir -p /opt/lisacp /var/log/lisacp
-sudo groupadd -r lisacp
-sudo useradd -r -s /bin/false -g lisacp lisacp
-sudo chown -R lisacp:lisacp /opt/lisacp
-sudo touch /var/log/lisacp/lisacp.log
-sudo chown lisacp:lisacp /var/log/lisacp/lisacp.log
-sudo touch /etc/default/lisacp
-sudo chmod 640 /etc/default/lisacp
+sudo mkdir -p /opt/elisacp /var/log/elisacp
+sudo groupadd -r elisacp
+sudo useradd -r -s /bin/false -g elisacp elisacp
+sudo chown -R elisacp:elisacp /opt/elisacp
+sudo touch /var/log/elisacp/elisacp.log
+sudo chown elisacp:elisacp /var/log/elisacp/elisacp.log
+sudo touch /etc/default/elisacp
+sudo chmod 640 /etc/default/elisacp
 
-sudo chown lisacp:lisacp /usr/bin/lisacp-ui
-sudo chmod 0777 /usr/bin/lisacp-ui
+sudo chown elisacp:elisacp /usr/bin/elisacp
+sudo chmod 0777 /usr/bin/elisacp

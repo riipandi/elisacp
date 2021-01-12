@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/websocket/v2"
-	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
+	ctr "github.com/riipandi/elisacp/cmd/elisacp/controllers"
 )
 
 func SetupWebsocketRoutes(app *fiber.App) {

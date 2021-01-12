@@ -3,14 +3,14 @@ package main
 import (
 	"crypto/tls"
 	"flag"
-	"github.com/riipandi/lisacp/cmd/app/config"
+	"github.com/riipandi/elisacp/cmd/elisacp/config"
 	"log"
 
-	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
-	"github.com/riipandi/lisacp/cmd/app/database"
-	"github.com/riipandi/lisacp/cmd/app/database/seeder"
-	"github.com/riipandi/lisacp/cmd/app/router"
-	"github.com/riipandi/lisacp/cmd/app/utils"
+	ctr "github.com/riipandi/elisacp/cmd/elisacp/controllers"
+	"github.com/riipandi/elisacp/cmd/elisacp/database"
+	"github.com/riipandi/elisacp/cmd/elisacp/database/seeder"
+	"github.com/riipandi/elisacp/cmd/elisacp/router"
+	"github.com/riipandi/elisacp/cmd/elisacp/utils"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -18,7 +18,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
-const staticDir = "./cmd/app/static"
+const staticDir = "./cmd/elisacp/static"
 
 var (
 	port = flag.String("port", ":2080", "Port to listen on")

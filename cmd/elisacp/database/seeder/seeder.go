@@ -1,7 +1,7 @@
 package seeder
 
 import (
-	"github.com/riipandi/lisacp/cmd/app/model"
+	"github.com/riipandi/elisacp/cmd/elisacp/model"
 	"gorm.io/gorm"
 	"log"
 )

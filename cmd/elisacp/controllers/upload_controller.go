@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"github.com/riipandi/lisacp/cmd/app/utils"
+	"github.com/riipandi/elisacp/cmd/elisacp/utils"
 )
 
 func UploadSingleFile(c *fiber.Ctx) error {

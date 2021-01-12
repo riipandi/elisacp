@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gofiber/fiber/v2"
-	ctr "github.com/riipandi/lisacp/cmd/app/controllers"
-	"github.com/riipandi/lisacp/cmd/app/middleware"
+	ctr "github.com/riipandi/elisacp/cmd/elisacp/controllers"
+	"github.com/riipandi/elisacp/cmd/elisacp/middleware"
 )
 
 func SetupRoutes(app *fiber.App) {

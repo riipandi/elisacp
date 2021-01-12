@@ -1,4 +1,4 @@
-module github.com/riipandi/lisacp
+module github.com/riipandi/elisacp
 
 go 1.15
 

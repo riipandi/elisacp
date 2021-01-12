@@ -14,9 +14,9 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "lisacp",
+	Use:   "elisacp",
 	Short: "Manage linux servers without hassle",
-	Long: `LisaCP can manage linux servers without hassle.
+	Long: `ElisaCP can manage linux servers without hassle.
 Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 This project still heavy development, not ready to use at production server.`,
 	Run: func(cmd *cobra.Command, args []string) { fmt.Println("Hello CLI") },
@@ -38,7 +38,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 	// fmt.Println("flag")
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.lisacp.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.elisacp.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -53,9 +53,9 @@ func initConfig() {
 			os.Exit(1)
 		}
 
-		// Search config in home directory with name ".lisacp" (without extension).
+		// Search config in home directory with name ".elisacp" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".lisacp")
+		viper.SetConfigName(".elisacp")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

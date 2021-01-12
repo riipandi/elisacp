@@ -44,5 +44,5 @@ yarn.lock
 
 # Project stuff
 target/
-cmd/app/static/public/*
-!cmd/app/static/public/.gitkeep
+cmd/elisacp/static/public/*
+!cmd/elisacp/static/public/.gitkeep

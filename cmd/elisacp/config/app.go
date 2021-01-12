@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/riipandi/lisacp/cmd/app/utils"
+	"github.com/riipandi/elisacp/cmd/elisacp/utils"
 )
 
 var (

@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/riipandi/lisacp/cmd/app/database"
-	"github.com/riipandi/lisacp/cmd/app/model"
-	"github.com/riipandi/lisacp/cmd/app/utils"
+	"github.com/riipandi/elisacp/cmd/elisacp/database"
+	"github.com/riipandi/elisacp/cmd/elisacp/model"
+	"github.com/riipandi/elisacp/cmd/elisacp/utils"
 
 	"strconv"
 

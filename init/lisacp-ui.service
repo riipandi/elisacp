@@ -1,25 +1,25 @@
-# /etc/systemd/system/lisacp-ui.service
+# /etc/systemd/system/elisacp.service
 [Unit]
-Description=LisaCP Service
-ConditionPathExists=/opt/lisacp
+Description=ElisaCP Service
+ConditionPathExists=/opt/elisacp
 After=syslog.target network.target
 
 [Service]
 Type=simple
-User=lisacp
-Group=lisacp
-WorkingDirectory=/opt/lisacp
-EnvironmentFile=/etc/default/lisacp
-ExecStart=/usr/bin/lisacp-ui -prod -port=:2080 -sslEnable -sslPort=:2083
+User=elisacp
+Group=elisacp
+WorkingDirectory=/opt/elisacp
+EnvironmentFile=/etc/default/elisacp
+ExecStart=/usr/bin/elisacp -prod -port=:2080 -sslEnable -sslPort=:2083
 
 # make sure log directory exists and owned by syslog
-ExecStartPre=/bin/mkdir -p /var/log/lisacp
-ExecStartPre=/bin/chown syslog:adm /var/log/lisacp
-ExecStartPre=/bin/chmod 755 /var/log/lisacp
+ExecStartPre=/bin/mkdir -p /var/log/elisacp
+ExecStartPre=/bin/chown syslog:adm /var/log/elisacp
+ExecStartPre=/bin/chmod 755 /var/log/elisacp
 
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=lisacp-ui
+SyslogIdentifier=elisacp
 SuccessExitStatus=143
 TimeoutStopSec=120
 Restart=always

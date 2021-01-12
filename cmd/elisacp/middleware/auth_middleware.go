@@ -3,7 +3,7 @@ package middleware
 import (
 	"github.com/gofiber/fiber/v2"
 	jwtware "github.com/gofiber/jwt/v2"
-	"github.com/riipandi/lisacp/cmd/app/config"
+	"github.com/riipandi/elisacp/cmd/elisacp/config"
 )
 
 // Protected protect router

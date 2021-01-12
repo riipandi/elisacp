@@ -2,8 +2,8 @@ package database
 
 import (
 	"fmt"
-	"github.com/riipandi/lisacp/cmd/app/config"
-	"github.com/riipandi/lisacp/cmd/app/model"
+	"github.com/riipandi/elisacp/cmd/elisacp/config"
+	"github.com/riipandi/elisacp/cmd/elisacp/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
