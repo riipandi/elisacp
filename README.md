@@ -5,10 +5,10 @@
 ![Security](https://github.com/riipandi/elisacp/workflows/Security/badge.svg)
 ![Linter](https://github.com/riipandi/elisacp/workflows/Linter/badge.svg) -->
 
-Linux Server Administration Control Panel (ElisaCP). Manage linux servers without hassle.
-ElisaCP is an open source Linux Control Panel. It's written in Golang and React and runs 
-as a single Linux binary with MySQL or PostgreSQL. Use the features you like, for example, 
-create virtualhost, manage MariaDB PostgreSQL database, etc, with full access to source code.
+Manage linux servers without hassle. ElisaCP is an open source Linux Control Panel. It's 
+written in Golang and React and runs as a single Linux binary with MySQL or PostgreSQL. 
+Use the features you like, for example, create virtualhost, manage MariaDB PostgreSQL 
+database, etc, with full access to source code.
 
 > Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 
@@ -17,9 +17,9 @@ __Important Note:__ *This project still heavy development, not ready to use at p
 ## Quick Start
 ### Prepare Database
 ```sql
-DROP USER IF EXISTS `elisacpdb`@`localhost`;
-DROP DATABASE IF EXISTS `elisacpdb`; CREATE DATABASE `elisacpdb`;
-GRANT ALL PRIVILEGES ON `elisacpdb`.* TO `elisacpdb`@`localhost` 
+DROP USER IF EXISTS `elisacp`@`localhost`;
+DROP DATABASE IF EXISTS `elisacp`; CREATE DATABASE `elisacp`;
+GRANT ALL PRIVILEGES ON `elisacp`.* TO `elisacp`@`localhost` 
     IDENTIFIED BY 'securepwd' WITH GRANT OPTION;
 ```
 
