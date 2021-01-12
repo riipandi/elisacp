@@ -52,5 +52,8 @@ install: install_cli install_app
 rundev: build_frontend
 	go run cmd/elisacp/main.go
 
+runsite:
+	cd website && npm run dev
+
 runprod:
 	./target/build/$(APP_NAME)

@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import SiteLayout from '../components/site-layout'
 
-export default function Home() {
+export default function Sponsors() {
   return (
     <SiteLayout>
       <Head>
-        <title>ElisaCP - Easy Linux Server Administration Control Panel</title>
+        <title>Sponsors - ElisaCP</title>
       </Head>
     </SiteLayout>
   )
