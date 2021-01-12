@@ -6,6 +6,9 @@
 ![Linter](https://github.com/riipandi/lisacp/workflows/Linter/badge.svg) -->
 
 Linux Server Administration Control Panel (LisaCP). Manage linux servers without hassle.
+LisaCP is an open source Linux Control Panel. It's written in Golang and React and runs 
+as a single Linux binary with MySQL or PostgreSQL. Use the features you like, for example, 
+create virtualhost, manage MariaDB PostgreSQL database, etc, with full access to source code.
 
 > Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 

@@ -89,7 +89,7 @@ func main() {
 
 	// Listen websocket on port 2030
 	go func() {
-		log.Fatal(app.Listen(":2030"))
+		log.Fatal(app.Listen("localhost:2030"))
 	}()
 
 	// Listen for HTTP on port 2080

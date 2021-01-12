@@ -14,7 +14,7 @@ func ConnectDB() {
 	var err error
 	dbport, err := strconv.ParseUint(config.DBPort, 10, 32)
 
-	dsn :=  fmt.Sprintf("%s:%v@tcp(%s:%v)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+	dsn :=  fmt.Sprintf("%s:%s@tcp(%s:%v)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		config.DBUser, config.DBPass, config.DBHost, dbport, config.DBName)
 
 	DBConn, err = gorm.Open(mysql.New(mysql.Config{

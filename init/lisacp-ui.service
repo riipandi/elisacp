@@ -1,3 +1,4 @@
+# /etc/systemd/system/lisacp-ui.service
 [Unit]
 Description=LisaCP Service
 ConditionPathExists=/opt/lisacp

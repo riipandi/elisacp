@@ -28,12 +28,10 @@ clean_all: clean
 	rm -fr $(BASEPATH)/target/*
 
 compile_cli:
-	GOARCH=amd64 GOOS=darwin cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-darwin-x64
-	GOARCH=amd64 GOOS=linux cd cmd/cli && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-linux-x64
+	cd cmd/cli && GOOS=linux GOARCH=amd64 go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-x64
 
 compile_app:
-	GOARCH=amd64 GOOS=darwin cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-darwin-x64
-	GOARCH=amd64 GOOS=linux cd cmd/app && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-linux-x64
+	cd cmd/app && GOOS=linux GOARCH=amd64 go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-x64
 
 compile: compile_cli compile_app
 

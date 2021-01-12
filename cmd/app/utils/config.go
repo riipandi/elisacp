@@ -2,18 +2,30 @@ package utils
 
 import (
 	"github.com/joho/godotenv"
-    "log"
-    "os"
+	"os"
 )
+
+// Get environment mode
+func getEnv() string {
+	if os.Getenv("APP_ENV") == "" {
+		return "production"
+	}
+
+	return os.Getenv("APP_ENV")
+}
 
 // GetEnVar return value from dotenv file
 func GetEnVar(key string) string {
-    // load .env file
-    err := godotenv.Load(".env")
+	if getEnv() == "production" {
+		godotenv.Load("/etc/default/lisacp")
+	} else {
+		godotenv.Load(".env")
+	}
 
-    if err != nil {
-        log.Fatalf("Error loading .env file")
-    }
+	//err := godotenv.Load(".env")
+    //if err != nil {
+    //    log.Fatalf("Error loading .env file")
+    //}
 
     return os.Getenv(key)
 }

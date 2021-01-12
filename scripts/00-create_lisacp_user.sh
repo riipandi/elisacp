@@ -6,3 +6,6 @@ sudo touch /var/log/lisacp/lisacp.log
 sudo chown lisacp:lisacp /var/log/lisacp/lisacp.log
 sudo touch /etc/default/lisacp
 sudo chmod 640 /etc/default/lisacp
+
+sudo chown lisacp:lisacp /usr/bin/lisacp-ui
+sudo chmod 0777 /usr/bin/lisacp-ui
