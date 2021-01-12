@@ -23,7 +23,7 @@ Leaving: "duration-150 ease-in"
   From: "opacity-100 scale-100"
   To: "opacity-0 scale-95"
     */}
-      <div className="absolute inset-x-0 top-0 z-30 w-full max-w-3xl p-2 mx-auto transition origin-top transform lg:hidden">
+      <div className="absolute inset-x-0 top-0 z-40 w-full max-w-3xl p-2 mx-auto transition origin-top transform lg:hidden">
         <div className="bg-white divide-y divide-gray-200 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="pt-3 pb-2">
             <div className="flex items-center justify-between px-4">

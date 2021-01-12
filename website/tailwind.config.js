@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Gellix', 'Inter', ...defaultTheme.fontFamily.sans]
+        sans: ['Gellix', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         gray: defaultColor.coolGray,

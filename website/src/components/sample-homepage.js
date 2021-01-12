@@ -1,5 +1,5 @@
 import React from 'react'
-export function SampleHomepage({}) {
+export default function SampleHomepage({}) {
   return (
     <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
       <h1 className="sr-only">Profile</h1>
