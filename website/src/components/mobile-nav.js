@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
+
 export function MobileNav({}) {
   return (
     <div>
@@ -33,7 +35,7 @@ Leaving: "duration-150 ease-in"
               <div className="-mr-2">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+                  className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-500"
                 >
                   <span className="sr-only">Close menu</span>
                   {/* Heroicon name: x */}
@@ -56,36 +58,37 @@ Leaving: "duration-150 ease-in"
               </div>
             </div>
             <div className="px-2 mt-3 space-y-1">
-              <a
+              {/* <a
                 href="#"
                 className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800"
               >
                 Home
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800"
-              >
-                Features
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800"
-              >
-                Quick Start
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800"
-              >
-                Documentation
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800"
-              >
-                Sponsors
-              </a>
+              </a> */}
+              <Link href="/features">
+                <a className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                  Features
+                </a>
+              </Link>
+              <Link href="/quick-start">
+                <a className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                  Quick Start
+                </a>
+              </Link>
+              <Link href="/docs">
+                <a className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                  Documentation
+                </a>
+              </Link>
+              <Link href="/sponsors">
+                <a className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                  Sponsors
+                </a>
+              </Link>
+              <Link href="/support">
+                <a className="block px-3 py-2 text-base font-medium text-gray-900 rounded-md hover:bg-gray-100 hover:text-gray-800">
+                  Support
+                </a>
+              </Link>
             </div>
           </div>
           <div className="pt-4 pb-2">
@@ -101,7 +104,7 @@ Leaving: "duration-150 ease-in"
                 <div className="text-base font-medium text-gray-800 truncate">Aris Ripandi</div>
                 <div className="text-sm font-medium text-gray-500 truncate">riipandi@gmail.com</div>
               </div>
-              <button className="flex-shrink-0 p-1 ml-auto text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+              <button className="flex-shrink-0 p-1 ml-auto text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500">
                 <span className="sr-only">View notifications</span>
                 {/* Heroicon name: bell */}
                 <svg

@@ -6,7 +6,7 @@ import { MobileNav } from './../components/mobile-nav'
 export function SiteHeader({}) {
   return (
     <header className="z-20 bg-transparent">
-      <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-3xl px-4 pb-6 mx-auto lg:pb-8 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="relative flex items-center justify-center py-5 lg:justify-between">
           {/* Logo */}
           <div className="absolute left-0 flex-shrink-0 lg:static">
@@ -24,7 +24,7 @@ export function SiteHeader({}) {
           <div className="hidden lg:flex lg:items-center lg:pr-0.5">
             {/* <button
             type="button"
-            className="flex-shrink-0 p-1 rounded-full text-primary-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex-shrink-0 p-1 rounded-full text-secondary-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
             >
             <span className="sr-only">View notifications</span>
             <svg
@@ -47,7 +47,7 @@ export function SiteHeader({}) {
             <div className="relative flex-shrink-0 mx-4">
               <div>
                 <Link href="/download">
-                  <a className="inline-flex items-center px-5 py-2.5 text-sm tracking-wide font-semibold leading-4 border border-transparent rounded-md shadow-md text-white bg-secondary-700 hover:bg-secondary-600 focus:outline-none">
+                  <a className="inline-flex items-center px-5 py-2.5 text-sm tracking-wide font-semibold leading-4 border border-transparent rounded-md shadow-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none">
                     Get it now
                   </a>
                 </Link>
@@ -74,7 +74,7 @@ export function SiteHeader({}) {
               <label htmlFor="search" className="sr-only">
                 Search
               </label>
-              <div className="relative text-white focus-within:text-gray-600">
+              <div className="relative text-gray-50 focus-within:text-gray-300">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   {/* Heroicon name: search */}
                   <svg
@@ -93,8 +93,8 @@ export function SiteHeader({}) {
                 </div>
                 <input
                   id="search"
-                  className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-white bg-white border border-transparent rounded-md bg-opacity-20 focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
-                  placeholder="Read the docs"
+                  className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-300 bg-gray-900 bg-opacity-50 border border-transparent rounded-md text-gray-50 focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
+                  placeholder="Read the docs: cmd + k"
                   type="search"
                   name="search"
                 />
@@ -105,7 +105,7 @@ export function SiteHeader({}) {
           <div className="absolute right-0 flex-shrink-0 lg:hidden">
             {/* Mobile menu button */}
             <button
-              className="inline-flex items-center justify-center p-2 bg-transparent rounded-md text-primary-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 bg-transparent rounded-md text-secondary-200 hover:text-white hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -150,9 +150,8 @@ export function SiteHeader({}) {
             </button>
           </div>
         </div>
-        <div className="hidden py-5 border-t border-white border-opacity-40 lg:block">
-          {/* <Navbar /> */}
-        </div>
+        {/* Bottom border for desktop navigaton */}
+        {/* <div className="hidden py-5 border-t-2 border-white border-opacity-50 lg:block" /> */}
       </div>
       <MobileNav />
     </header>

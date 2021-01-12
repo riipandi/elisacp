@@ -6,17 +6,17 @@ export function Navbar({}) {
     <div className="grid items-center grid-cols-3 gap-8">
       <div className="col-span-2">
         <nav className="flex space-x-4">
-          <Link href="/">
+          {/* <Link href="/">
             <a
               className="px-3 py-2 text-sm font-medium text-white bg-white bg-opacity-0 rounded-md hover:bg-opacity-10"
               aria-current="page"
             >
               Home
             </a>
-          </Link>
+          </Link> */}
           <Link href="/features">
             <a
-              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-primary-100 hover:bg-opacity-10"
+              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-secondary-100 hover:bg-opacity-10"
               aria-current="false"
             >
               Features
@@ -24,7 +24,7 @@ export function Navbar({}) {
           </Link>
           <Link href="/quick-start">
             <a
-              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-primary-100 hover:bg-opacity-10"
+              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-secondary-100 hover:bg-opacity-10"
               aria-current="false"
             >
               Quick Start
@@ -32,7 +32,7 @@ export function Navbar({}) {
           </Link>
           <Link href="/docs">
             <a
-              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-primary-100 hover:bg-opacity-10"
+              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-secondary-100 hover:bg-opacity-10"
               aria-current="false"
             >
               Documentation
@@ -41,10 +41,19 @@ export function Navbar({}) {
           <Link href="/sponsors">
             <a
               href="#"
-              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-primary-100 hover:bg-opacity-10"
+              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-secondary-100 hover:bg-opacity-10"
               aria-current="false"
             >
               Sponsors
+            </a>
+          </Link>
+          <Link href="/support">
+            <a
+              href="#"
+              className="px-3 py-2 text-sm font-medium bg-white bg-opacity-0 rounded-md text-secondary-100 hover:bg-opacity-10"
+              aria-current="false"
+            >
+              Support
             </a>
           </Link>
         </nav>
@@ -54,7 +63,7 @@ export function Navbar({}) {
           <label htmlFor="search" className="sr-only">
             Search
           </label>
-          <div className="relative text-white focus-within:text-gray-600">
+          <div className="relative text-gray-50 focus-within:text-gray-300">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               {/* Heroicon name: search */}
               <svg
@@ -73,8 +82,8 @@ export function Navbar({}) {
             </div>
             <input
               id="search"
-              className="block w-full py-2 pl-10 pr-3 leading-5 text-gray-900 placeholder-white bg-white border border-transparent rounded-md bg-opacity-20 focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
-              placeholder="Read the docs"
+              className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-300 bg-gray-900 bg-opacity-50 border border-transparent rounded-md text-gray-50 focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-200 focus:ring-0 sm:text-sm"
+              placeholder="Read the docs: cmd + k"
               type="search"
               name="search"
             />

@@ -61,7 +61,7 @@ export default function SampleHomepage({}) {
               <h2 className="sr-only" id="quick-links-title">
                 Quick links
               </h2>
-              <div className="relative p-6 bg-white rounded-tl-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white rounded-tl-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
                   <span className="inline-flex p-3 text-teal-700 rounded-lg bg-teal-50 ring-4 ring-white">
                     {/* Heroicon name: clock */}
@@ -109,7 +109,7 @@ export default function SampleHomepage({}) {
                   </svg>
                 </span>
               </div>
-              <div className="relative p-6 bg-white rounded-tr-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white rounded-tr-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
                   <span className="inline-flex p-3 text-purple-700 rounded-lg bg-purple-50 ring-4 ring-white">
                     {/* Heroicon name: badge-check */}
@@ -157,7 +157,7 @@ export default function SampleHomepage({}) {
                   </svg>
                 </span>
               </div>
-              <div className="relative p-6 bg-white group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
                   <span className="inline-flex p-3 rounded-lg bg-light-blue-50 text-light-blue-700 ring-4 ring-white">
                     {/* Heroicon name: users */}
@@ -205,7 +205,7 @@ export default function SampleHomepage({}) {
                   </svg>
                 </span>
               </div>
-              <div className="relative p-6 bg-white group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
                   <span className="inline-flex p-3 text-yellow-700 rounded-lg bg-yellow-50 ring-4 ring-white">
                     {/* Heroicon name: cash */}
@@ -253,7 +253,7 @@ export default function SampleHomepage({}) {
                   </svg>
                 </span>
               </div>
-              <div className="relative p-6 bg-white rounded-bl-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white rounded-bl-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
                   <span className="inline-flex p-3 rounded-lg bg-rose-50 text-rose-700 ring-4 ring-white">
                     {/* Heroicon name: receipt-refund */}
@@ -301,9 +301,9 @@ export default function SampleHomepage({}) {
                   </svg>
                 </span>
               </div>
-              <div className="relative p-6 bg-white rounded-br-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary-500">
+              <div className="relative p-6 bg-white rounded-br-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
-                  <span className="inline-flex p-3 rounded-lg text-primary-700 bg-primary-50 ring-4 ring-white">
+                  <span className="inline-flex p-3 rounded-lg text-secondary-700 bg-secondary-50 ring-4 ring-white">
                     {/* Heroicon name: academic-cap */}
                     <svg
                       className="w-6 h-6"
@@ -369,7 +369,7 @@ export default function SampleHomepage({}) {
                 <div className="flow-root mt-6">
                   <ul className="-my-5 divide-y divide-gray-200">
                     <li className="py-5">
-                      <div className="relative focus-within:ring-2 focus-within:ring-primary-500">
+                      <div className="relative focus-within:ring-2 focus-within:ring-secondary-500">
                         <h3 className="text-sm font-semibold text-gray-800">
                           <a href="#" className="hover:underline focus:outline-none">
                             {/* Extend touch target to entire panel */}
@@ -385,7 +385,7 @@ export default function SampleHomepage({}) {
                       </div>
                     </li>
                     <li className="py-5">
-                      <div className="relative focus-within:ring-2 focus-within:ring-primary-500">
+                      <div className="relative focus-within:ring-2 focus-within:ring-secondary-500">
                         <h3 className="text-sm font-semibold text-gray-800">
                           <a href="#" className="hover:underline focus:outline-none">
                             {/* Extend touch target to entire panel */}
@@ -402,7 +402,7 @@ export default function SampleHomepage({}) {
                       </div>
                     </li>
                     <li className="py-5">
-                      <div className="relative focus-within:ring-2 focus-within:ring-primary-500">
+                      <div className="relative focus-within:ring-2 focus-within:ring-secondary-500">
                         <h3 className="text-sm font-semibold text-gray-800">
                           <a href="#" className="hover:underline focus:outline-none">
                             {/* Extend touch target to entire panel */}

@@ -5,7 +5,7 @@
 ![Security](https://github.com/riipandi/elisacp/workflows/Security/badge.svg)
 ![Linter](https://github.com/riipandi/elisacp/workflows/Linter/badge.svg) -->
 
-Manage linux servers without hassle. ElisaCP is an open source Linux Control Panel. It's 
+Manage linux server without hassle. ElisaCP is an open source Linux Control Panel. It's 
 written in Golang and React and runs as a single Linux binary with MySQL or PostgreSQL. 
 Use the features you like, for example, create virtualhost, manage MariaDB PostgreSQL 
 database, etc, with full access to source code.
