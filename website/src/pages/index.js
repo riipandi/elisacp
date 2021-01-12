@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <SiteLayout>
       <Head>
-        <title>LISA Control Panel - Manage linux servers without hassle</title>
+        <title>ElisaCP - Easy Linux Server Administration Control Panel</title>
       </Head>
       <div className="flex items-center min-h-screen text-white">
         <div className="container flex flex-wrap items-center p-4 mx-auto">
