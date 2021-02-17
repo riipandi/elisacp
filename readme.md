@@ -12,7 +12,8 @@ database, etc, with full access to source code.
 
 > Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 
-__Important Note:__ *This project still heavy development, not ready to use at production server.*
+__Important Note:__ 
+*This project still heavy development, not yet ready to use at production server.*
 
 ## Quick Start
 ### Prepare Database
@@ -20,33 +21,65 @@ __Important Note:__ *This project still heavy development, not ready to use at p
 DROP USER IF EXISTS `elisacp`@`localhost`;
 DROP DATABASE IF EXISTS `elisacp`; CREATE DATABASE `elisacp`;
 GRANT ALL PRIVILEGES ON `elisacp`.* TO `elisacp`@`localhost` 
-    IDENTIFIED BY 'securepwd' WITH GRANT OPTION;
+    IDENTIFIED BY 'secret' WITH GRANT OPTION;
 ```
 
 ### Development
 ```sh
+go get all
 make rundev
 ```
 
 > Go to `http://localhost:2080`:
 
-## Directory Structure
+## Things to know
+#### Make Commands
+```
+make all         : build and compile all
+release          : create binary release for production
+clean            : clean up the workspace
+
+build_cli        : build and install cli in dev mode
+compile_cli      : compile cli in prod mode
+
+build_elcp       : build and install ElisaCP in dev mode
+build_frontend   : build ElisaCP frontend
+compile_elcp     : compile ElisaCP in prod mode
+
+runweb           : run ElisaCP frontend in dev mode
+rundev           : run ElisaCP in dev mode
+runsite          : run landing page website in dev mode
+build_website    : build website for landing page
+```
+
+#### Directory Structure
 ```
 /
 --/assets     : Assets files (images, logos, etc).
 --/cmd        : Main application.
-----/elisa    : CLI application.
-----/elisacp  : API and UI application.
---/configs    : Configuration file templates or default configs.
+----/eli      : CLI application.
+----/elcp     : API and UI application.
 --/docs       : Project documentation written in Markdown.
---/init       : System init (systemd) and process manager configs.
 --/internal   : Common application libraries.
---/scripts    : Scripts to perform packages installation.
+--/resources  : Configuration file templates or default configs.
+----/configs  : Configuration file templates or default configs.
+----/init     : System init (systemd) and process manager configs.
+----/scripts  : Scripts to perform packages installation.
 --/target     : Output binary files
 --/tools      : Supporting tools for this project.
 --/web        : Web application UI.
 --/website    : Project website.
 ```
+
+## Contributing
+Current state we won't accept any PR requests to this project. If you 
+have discovered a bug or have an idea to improve the code, contact us 
+first before you start coding.
+
+## Thanks to ...
+In general, I'd like to thank every single one who open-sources their 
+source code for their effort to contribute something to the open-source 
+community. Your work means the world! 🌍 ❤️
 
 ## LICENSE
 This project licensed under the terms of [Apache 2.0 License][choosealicense].

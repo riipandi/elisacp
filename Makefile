@@ -1,59 +1,65 @@
-APP_NAME := elisacp
 CLI_NAME := elisa
+APP_NAME := elisacp
 BASEPATH := $(shell pwd)
 PACKAGE := github.com/riipandi/elisacp/version
 REVISION := $(shell git rev-parse --short HEAD)
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n')
-LDFLAGS := "-X $(PACKAGE).GitRevision=$(REVISION) -X $(PACKAGE).GitBranch=$(BRANCH)"
 
-all: clean_all build_backend build_cli compile
+RELEASE_PATH = $(BASEPATH)/target/release
+BUILD_PATH = $(BASEPATH)/target/debug
 
-build_cli:
-	cd cmd/elisa && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/build/$(CLI_NAME)
+LDFLAG_INFO = -X $(PACKAGE).GitRevision=$(REVISION) -X $(PACKAGE).GitBranch=$(BRANCH)
+BUILD_CMD = go build -ldflags "-s -w $(LDFLAG_INFO)"
+BUILD_ENV = GOOS=linux GOARCH=amd64
 
-build_backend: build_frontend
-	cd cmd/elisacp && go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/build/$(APP_NAME)
+all: clean build_cli build_elcp compile
 
-build_frontend: clean
-	cd ./web && npm run build && cp -r build/* ../cmd/elisacp/static/public/ && cd -
-
-build_website:
-	cd ./website && npm run build && cd -
+release: compile_cli compile_elcp
 
 clean:
-	rm -fr cmd/elisacp/static/public/*
-	touch cmd/elisacp/static/public/.gitkeep
+	@rm -fr cmd/elcp/static/public/*
+	@touch cmd/elcp/static/public/.gitkeep
+	@rm -fr $(BASEPATH)/target/*
 
-clean_all: clean
-	rm -fr $(BASEPATH)/target/*
+# ------------------------------------------------------------------------------
+# ElisaCP cli app
+# ------------------------------------------------------------------------------
+build_cli:
+	@cd cmd/eli && $(BUILD_CMD) -i -o $(BUILD_PATH)/$(CLI_NAME)
+	@cd cmd/eli && go install
+	@echo "Elisa CLI (dev) has been compiled and installed."
 
 compile_cli:
-	cd cmd/elisa && GOOS=linux GOARCH=amd64 go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(CLI_NAME)-x64
+	@cd cmd/eli && $(BUILD_ENV) $(BUILD_CMD) -i -o $(RELEASE_PATH)/$(CLI_NAME)-$(REVISION)-x64
+	@ls -lh target/release && echo "Elisa CLI compiled with production environment."
 
-compile_app:
-	cd cmd/elisacp && GOOS=linux GOARCH=amd64 go build -ldflags $(LDFLAGS) -i -o $(BASEPATH)/target/release/$(APP_NAME)-x64
+# --------------------------------------------------------------------------------
+# ElisaCP control panel
+# --------------------------------------------------------------------------------
+build_elcp: build_frontend
+	@cd cmd/elcp && $(BUILD_CMD) -i -o $(BUILD_PATH)/$(APP_NAME)
+	@cd cmd/elcp && go install
+	@echo "ElisaCP (dev) has been compiled and installed."
 
-compile: compile_cli compile_app
+build_frontend: clean
+	@cd web ; npm install --silent && npm run build
+	@cp -r web/dist/* cmd/elcp/static/public/
 
-dev_frontend:
-	cd ./web && npm run start
+compile_elcp:
+	@cd cmd/elcp && $(BUILD_ENV) $(BUILD_CMD) -i -o $(RELEASE_PATH)/$(APP_NAME)-$(REVISION)-x64
+	@ls -lh target/release && echo "ElisaCP compiled with production environment."
 
-dev_website:
-	cd ./website && npm run dev
-
-install_app: build_backend
-	cd cmd/elisacp && go install
-
-install_cli: build_cli
-	cd cmd/elisa && go install
-
-install: install_cli install_app
+runweb:
+	@cd web && npm install --silent && npm run dev
 
 rundev: build_frontend
-	go run cmd/elisacp/main.go
+	@go run cmd/elcp/main.go
+
+# --------------------------------------------------------------------------------
+# ElisaCP website
+# --------------------------------------------------------------------------------
+build_website:
+	@cd website && npm install --silent && npm run build
 
 runsite:
-	cd website && npm run dev
-
-runprod:
-	./target/build/$(APP_NAME)
+	@cd website && npm run dev
