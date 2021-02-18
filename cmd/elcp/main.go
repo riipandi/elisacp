@@ -13,6 +13,7 @@ import (
 	db "github.com/riipandi/elisacp/cmd/elcp/database"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/redirect/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
@@ -43,6 +44,13 @@ func main() {
 	app.Use(logger.New())
 	app.Use(cors.New())
 
+	// Redirect default index page to SPA page
+	app.Use(redirect.New(redirect.Config {
+		Rules: map[string]string{
+			"/changelog": "https://elisacp.vercel.app/changelog",
+		}, StatusCode: 302,
+	}))
+
 	// Middleware for websocket with prefix /ws
 	app.Use("/ws", func(c *fiber.Ctx) error {
 		if c.Get("host") == "localhost:2030" {
@@ -58,7 +66,7 @@ func main() {
 
 	// Setup static files and SPA router for frontend
 	app.Static("/", staticDir + "/public")
-	app.Get("/*", func(ctx *fiber.Ctx) error {
+	app.Get("/", func(ctx *fiber.Ctx) error {
 		return ctx.SendFile(staticDir + "/public/index.html")
 	})
 

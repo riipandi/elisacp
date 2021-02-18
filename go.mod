@@ -8,6 +8,7 @@ require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gofiber/fiber/v2 v2.5.0
 	github.com/gofiber/jwt/v2 v2.1.0
+	github.com/gofiber/redirect/v2 v2.1.0
 	github.com/gofiber/websocket/v2 v2.0.2
 	github.com/gopherjs/gopherjs v0.0.0-20210202160940-bed99a852dfe // indirect
 	github.com/joho/godotenv v1.3.0

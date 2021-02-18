@@ -64,12 +64,16 @@ github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gG
 github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
 github.com/gofiber/fiber/v2 v2.1.0/go.mod h1:aG+lMkwy3LyVit4CnmYUbUdgjpc3UYOltvlJZ78rgQ0=
+github.com/gofiber/fiber/v2 v2.2.2/go.mod h1:Aso7/M+EQOinVkWp4LUYjdlTpKTBoCk2Qo4djnMsyHE=
 github.com/gofiber/fiber/v2 v2.3.2 h1:8ecrfzlfTUsboMybK6TQIfPoObmPR1hEoKU7Ni1pElg=
 github.com/gofiber/fiber/v2 v2.3.2/go.mod h1:f8BRRIMjMdRyt2qmJ/0Sea3j3rwwfufPrh9WNBRiVZ0=
 github.com/gofiber/fiber/v2 v2.5.0 h1:yml405Um7b98EeMjx63OjSFTATLmX985HPWFfNUPV0w=
 github.com/gofiber/fiber/v2 v2.5.0/go.mod h1:f8BRRIMjMdRyt2qmJ/0Sea3j3rwwfufPrh9WNBRiVZ0=
 github.com/gofiber/jwt/v2 v2.1.0 h1:eTahBQ8vO73fcXjpQjv/xiKZqMjvDtw5QmsvdgWQg6w=
 github.com/gofiber/jwt/v2 v2.1.0/go.mod h1:sf3l8cbwW93qL0kM9jcX9QTc8VIJgXCO1RWquBJUqTg=
+github.com/gofiber/redirect v0.1.1 h1:RdID91cq9WQkovtMZ1DnCVs3WnD+PvSx87TbKx8Pbfw=
+github.com/gofiber/redirect/v2 v2.1.0 h1:Zi5/9yenw+cQFFwf/fxKwT248Ti1Yip0qqGvd1uiFzo=
+github.com/gofiber/redirect/v2 v2.1.0/go.mod h1:Qo+IPiY5k7unn+XPDXeitiuTizJeU3qaGcFWvLYihXo=
 github.com/gofiber/websocket v0.5.1 h1:G+LnA98eof5cgN6C1iA5WpOOmjW6rjQiCO7xctTIruc=
 github.com/gofiber/websocket/v2 v2.0.2 h1:UA/6NpyG+vmPGlvJvW8MJPJpRFuS7abinZ5HbLuV8u0=
 github.com/gofiber/websocket/v2 v2.0.2/go.mod h1:7VBnzEVRK0K0eTIVc5GbXPF1JWUFnllY0X4cRtG2v78=
@@ -268,6 +272,7 @@ github.com/valyala/bytebufferpool v1.0.0 h1:GqA5TC/0021Y/b9FG4Oi9Mr3q7XYx6Kllzaw
 github.com/valyala/bytebufferpool v1.0.0/go.mod h1:6bBcMArwyJ5K/AmCkWv1jt77kVWyCJ6HpOuEn7z0Csc=
 github.com/valyala/fasthttp v1.14.0/go.mod h1:ol1PCaL0dX20wC0htZ7sYCsvCYmrouYra0zHzaclZhE=
 github.com/valyala/fasthttp v1.16.0/go.mod h1:YOKImeEosDdBPnxc0gy7INqi3m1zK6A+xl6TwOBhHCA=
+github.com/valyala/fasthttp v1.17.0/go.mod h1:jjraHZVbKOXftJfsOYoAjaeygpj5hr8ermTRJNroD7A=
 github.com/valyala/fasthttp v1.18.0/go.mod h1:jjraHZVbKOXftJfsOYoAjaeygpj5hr8ermTRJNroD7A=
 github.com/valyala/fasthttp v1.19.0 h1:PfTS4PeH3xDr3WomrDS2ID8lU2GskK1xS3YG6gIpibU=
 github.com/valyala/fasthttp v1.19.0/go.mod h1:jjraHZVbKOXftJfsOYoAjaeygpj5hr8ermTRJNroD7A=
@@ -364,6 +369,7 @@ golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20201015000850-e3ed0017c211/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20201210223839-7e3030f88018/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20210110051926-789bb1bd4061 h1:DQmQoKxQWtyybCtX/3dIuDBcAhFszqq8YiNeS6sNu1c=
 golang.org/x/sys v0.0.0-20210110051926-789bb1bd4061/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

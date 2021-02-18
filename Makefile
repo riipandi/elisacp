@@ -53,7 +53,8 @@ build_elcp: build_frontend
 
 build_frontend: clean
 	@cd web ; npm install --silent && npm run build
-	@cp -r web/dist/* cmd/elcp/static/public/
+	@cp assets/favicon.* cmd/elcp/static/public/.
+	@cp -r web/dist/* cmd/elcp/static/public/.
 
 compile_elcp:
 	@cd cmd/elcp && $(BUILD_ENV) $(BUILD_CMD) -i -o $(BUILD_PATH)/$(APP_NAME)-$(REVISION)-x64

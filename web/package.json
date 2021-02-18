@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "NODE_ENV=production vite build"
   },
+  "proxy": "/api",
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.1",
