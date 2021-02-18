@@ -5,13 +5,13 @@ import (
 	"github.com/riipandi/elisacp/cmd/elcp/utils"
 )
 
-var password, _ = utils.HashPassword("passw0rd")
+var password, _ = utils.HashPassword("secret")
 
 var users = []model.User{
 	{
 		Name:     "Aris Ripandi",
-		Email:    "riipandi@gmail.com",
-		Username: "riipandi",
+		Email:    "admin@example.com",
+		Username: "admin",
 		Password: password,
 		IsActive: 1,
 		},
