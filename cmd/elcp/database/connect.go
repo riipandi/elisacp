@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"github.com/riipandi/elisacp/cmd/elcp/config"
+	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
 	"github.com/riipandi/elisacp/cmd/elcp/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -12,10 +12,10 @@ import (
 
 func ConnectDB() {
 	var err error
-	dbport, err := strconv.ParseUint(config.DBPort, 10, 32)
+	dbport, err := strconv.ParseUint(cfg.DBPort, 10, 32)
 
 	dsn :=  fmt.Sprintf("%s:%s@tcp(%s:%v)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		config.DBUser, config.DBPass, config.DBHost, dbport, config.DBName)
+		cfg.DBUser, cfg.DBPass, cfg.DBHost, dbport, cfg.DBName)
 
 	DBConn, err = gorm.Open(mysql.New(mysql.Config{
 		DSN: dsn, // data source name

@@ -3,9 +3,9 @@ package config
 import "github.com/riipandi/elisacp/cmd/elcp/utils"
 
 var (
-	DBUser = utils.GetEnVar("DB_USERNAME")
-	DBPass = utils.GetEnVar("DB_PASSWORD")
-	DBName = utils.GetEnVar("DB_NAME")
-	DBHost = utils.GetEnVar("DB_HOST")
-	DBPort = utils.GetEnVar("DB_PORT")
+	DBUser = utils.GetEnv("DB_USERNAME")
+	DBPass = utils.GetEnv("DB_PASSWORD")
+	DBName = utils.GetEnv("DB_NAME")
+	DBHost = utils.GetEnv("DB_HOST")
+	DBPort = utils.GetEnv("DB_PORT")
 )

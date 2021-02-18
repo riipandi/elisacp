@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/riipandi/elisacp/cmd/elcp/config"
+	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
 	"github.com/riipandi/elisacp/cmd/elcp/database"
 	"github.com/riipandi/elisacp/cmd/elcp/model"
 	"github.com/riipandi/elisacp/cmd/elcp/utils"
@@ -102,7 +102,7 @@ func Login(c *fiber.Ctx) error {
 	claims["user_id"] = ud.ID
 	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
 
-	t, err := token.SignedString([]byte(config.AppSecret))
+	t, err := token.SignedString([]byte(cfg.AppSecret))
 	if err != nil {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}

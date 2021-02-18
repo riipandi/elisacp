@@ -1,8 +1,6 @@
 package controllers
 
-import (
-	"github.com/gofiber/fiber/v2"
-)
+import "github.com/gofiber/fiber/v2"
 
 // Index returns welcome message
 func Index(c *fiber.Ctx) error {

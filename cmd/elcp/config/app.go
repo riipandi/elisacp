@@ -1,12 +1,10 @@
 package config
 
-import (
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
-)
+import "github.com/riipandi/elisacp/cmd/elcp/utils"
 
 var (
-	AppSecret   = utils.GetEnVar("APP_SECRET")
-	AppDomain   = utils.GetEnVar("APP_DOMAIN")
-	SslCertFile = utils.GetEnVar("SSL_CERT_FILE")
-	SslKeyFile  = utils.GetEnVar("SSL_KEY_FILE")
+	AppSecret   = utils.GetEnv("APP_SECRET")
+	AppDomain   = utils.GetEnv("APP_DOMAIN")
+	SSLCertFile = utils.GetEnv("SSL_CERT_FILE")
+	SSLKeyFile  = utils.GetEnv("SSL_KEY_FILE")
 )

@@ -9,8 +9,8 @@ Type=simple
 User=elisacp
 Group=elisacp
 WorkingDirectory=/opt/elisacp
-EnvironmentFile=/etc/default/elisacp
-ExecStart=/usr/bin/elisacp -prod -port=:2080 -sslEnable -sslPort=:2083
+EnvironmentFile=/opt/elisacp/config/elcp.conf
+ExecStart=/opt/elisacp/bin/elcp -prod -host=0.0.0.0:2080
 
 # make sure log directory exists and owned by syslog
 ExecStartPre=/bin/mkdir -p /var/log/elisacp

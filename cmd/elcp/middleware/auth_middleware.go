@@ -3,13 +3,13 @@ package middleware
 import (
 	"github.com/gofiber/fiber/v2"
 	jwtware "github.com/gofiber/jwt/v2"
-	"github.com/riipandi/elisacp/cmd/elcp/config"
+	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
 )
 
 // Protected protect router
 func Protected() fiber.Handler {
 	return jwtware.New(jwtware.Config{
-		SigningKey: []byte(config.AppSecret),
+		SigningKey: []byte(cfg.AppSecret),
 		ErrorHandler: jwtError,
 	})
 }

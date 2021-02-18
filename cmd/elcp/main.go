@@ -3,14 +3,14 @@ package main
 import (
 	"crypto/tls"
 	"flag"
-	"github.com/riipandi/elisacp/cmd/elcp/config"
 	"log"
 
-	ctr "github.com/riipandi/elisacp/cmd/elcp/controllers"
-	"github.com/riipandi/elisacp/cmd/elcp/database"
-	"github.com/riipandi/elisacp/cmd/elcp/database/seeder"
 	"github.com/riipandi/elisacp/cmd/elcp/router"
+	"github.com/riipandi/elisacp/cmd/elcp/database/seeder"
 	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	db "github.com/riipandi/elisacp/cmd/elcp/database"
+	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
+	ctr "github.com/riipandi/elisacp/cmd/elcp/controllers"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -21,20 +21,22 @@ import (
 const staticDir = "./cmd/elcp/static"
 
 var (
-	port = flag.String("port", ":2080", "Port to listen on")
-	prod = flag.Bool("prod", false, "Enable prefork in Production")
-	sslEnable = flag.Bool("sslEnable", true, "Enable HTTPS protocol")
-	sslPort = flag.String("sslPort", ":2083", "Port to listen on")
+	flagHostSsl = flag.String("secureHost", ":2080", "Address to listen, default is 2080")
+	flagProd = flag.Bool("prod", false, "Enable prefork in Production")
 )
+
+func init() {
+	// Prepare all the things
+	utils.PrepareEnvironment()
+	db.ConnectDB()
+	seeder.DatabaseSeeder(db.DBConn)
+}
 
 func main() {
 	// Create fiber app
 	app := fiber.New(fiber.Config{
-		Prefork: *prod, // go run main.go -prod
+		Prefork: *flagProd, // go run main.go -prod
 	})
-
-	// Prepare all the things
-	utils.PrepareEnvironment()
 
 	// Middleware
 	app.Use(recover.New())
@@ -50,10 +52,6 @@ func main() {
 		return c.Status(403).JSON(fiber.Map{"status": "error", "message": "Request origin not allowed"})
 	})
 
-	// Initialize database connection
-	database.ConnectDB()
-	seeder.DatabaseSeeder(database.DBConn)
-
 	// Create api endpoint
 	router.SetupRoutes(app)
 	router.SetupWebsocketRoutes(app)
@@ -67,31 +65,24 @@ func main() {
 	// Handle not founds
 	app.Use(ctr.ErrorNotFound)
 
-	// Listen for HTTPS on port 2083
-	if *sslEnable {
-		go func() {
-			// Create tls certificate
-			cer, err := tls.LoadX509KeyPair(config.SslCertFile, config.SslKeyFile)
-
-			if err != nil { log.Fatal(err) }
-			config := &tls.Config{Certificates: []tls.Certificate{cer}}
-
-			// Create custom listener
-			ln, err := tls.Listen("tcp", *sslPort, config)
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			// Start server with https/ssl enabled
-			log.Fatal(app.Listener(ln)) // go run main.go -sslPort=:2083
-		}()
-	}
-
 	// Listen websocket on port 2030
 	go func() {
 		log.Fatal(app.Listen("localhost:2030"))
 	}()
 
-	// Listen for HTTP on port 2080
-	log.Fatal(app.Listen(*port)) // go run main.go -port=:2080
+	// Listen for HTTPS on port 2080
+	// Create tls certificate
+	cer, err := tls.LoadX509KeyPair(cfg.SSLCertFile, cfg.SSLKeyFile)
+
+	if err != nil { log.Fatal(err) }
+	config := &tls.Config{Certificates: []tls.Certificate{cer}}
+
+	// Create custom listener
+	ln, err := tls.Listen("tcp", *flagHostSsl, config)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Start server with https/ssl enabled
+	log.Fatal(app.Listener(ln)) // go run main.go -host=:2080
 }
