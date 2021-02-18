@@ -26,6 +26,7 @@ require (
 	github.com/spf13/viper v1.7.1
 	github.com/stretchr/testify v1.7.0 // indirect
 	github.com/valyala/fasthttp v1.21.0 // indirect
+	go.hein.dev/go-version v0.1.0
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
 	golang.org/x/sys v0.0.0-20210217105451-b926d437f341 // indirect
 	golang.org/x/text v0.3.5 // indirect
@@ -35,4 +36,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 	gorm.io/driver/mysql v1.0.4
 	gorm.io/gorm v1.20.12
+	sigs.k8s.io/yaml v1.2.0 // indirect
 )

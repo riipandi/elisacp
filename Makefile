@@ -1,5 +1,6 @@
 CLI_NAME := eli
 APP_NAME := elcp
+BUILD_VERSION := 0.1.0
 BASEPATH := $(shell pwd)
 REVISION := $(shell git rev-parse --short HEAD)
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n')
@@ -7,7 +8,7 @@ RELEASE_PATH = $(BASEPATH)/target/release
 BUILD_PATH = $(BASEPATH)/target/debug
 
 PACKAGE := github.com/riipandi/elisacp/cmd/eli
-LDFLAG_INFO = -X $(PACKAGE)/version.GitRevision=$(REVISION) -X $(PACKAGE)/version.GitBranch=$(BRANCH)
+LDFLAG_INFO = -X main.GitRevision=$(REVISION) -X main.GitBranch=$(BRANCH) -X main.BuildVersion=$(BUILD_VERSION)
 BUILD_CMD = go build -ldflags "-s -w $(LDFLAG_INFO)"
 BUILD_ENV = GOOS=linux GOARCH=amd64
 
