@@ -3,6 +3,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"github.com/riipandi/elisacp/cmd/eli/buildinfo"
 )
 
 var versionCmd = &cobra.Command{
@@ -10,7 +11,7 @@ var versionCmd = &cobra.Command{
 	Short: "Show application version",
 	Long: `This command will display application information.`,
 
-	Run: func(cmd *cobra.Command, args []string) { fmt.Println("0.1.0") },
+	Run: func(cmd *cobra.Command, args []string) { fmt.Println(buildinfo.BuildVersion) },
 }
 
 func init() {

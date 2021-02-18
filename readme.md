@@ -61,7 +61,7 @@ build_website    : build website for landing page
 ----/elcp     : API and UI application.
 --/docs       : Project documentation written in Markdown.
 --/internal   : Common application libraries.
---/resources  : Configuration file templates or default configs.
+--/resources  : Other things.
 ----/configs  : Configuration file templates or default configs.
 ----/init     : System init (systemd) and process manager configs.
 ----/scripts  : Scripts to perform packages installation.

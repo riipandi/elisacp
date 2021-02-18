@@ -8,18 +8,21 @@ import (
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
+	"github.com/riipandi/elisacp/cmd/eli/buildinfo"
 )
 
 var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "elisacp",
+	Use:   "eli",
 	Short: "Manage linux servers without hassle",
 	Long: `ElisaCP can manage linux servers without hassle.
 Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 This project still heavy development, not ready to use at production server.`,
-	Run: func(cmd *cobra.Command, args []string) { fmt.Println("Hello CLI") },
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Elisa CLI build %v branch %v. Compiled at %s\n", buildinfo.GitRevision, buildinfo.GitBranch, buildinfo.BuildTime)
+	 },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
