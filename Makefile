@@ -7,7 +7,7 @@ BRANCH := $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n')
 RELEASE_PATH = $(BASEPATH)/target/release
 BUILD_PATH = $(BASEPATH)/target/debug
 
-PACKAGE := github.com/riipandi/elisacp/cmd/eli
+PACKAGE := github.com/riipandi/elisacp/cmd/eli/commands
 
 LDFLAG_INFO = \
   -X $(PACKAGE).GitRevision=$(REVISION) \
