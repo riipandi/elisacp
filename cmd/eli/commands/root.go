@@ -8,7 +8,6 @@ import (
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/viper"
-	"github.com/riipandi/elisacp/cmd/eli/buildinfo"
 )
 
 var cfgFile string
@@ -21,8 +20,8 @@ var rootCmd = &cobra.Command{
 Currently only work on Ubuntu 18.04 LTS and Ubuntu 20.04 LTS only.
 This project still heavy development, not ready to use at production server.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("Elisa CLI build %v branch %v. Compiled at %s\n", buildinfo.GitRevision, buildinfo.GitBranch, buildinfo.BuildTime)
-	 },
+		fmt.Println("Hello from Elisa CLI.")
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

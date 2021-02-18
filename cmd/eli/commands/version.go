@@ -11,7 +11,13 @@ var versionCmd = &cobra.Command{
 	Short: "Show application version",
 	Long: `This command will display application information.`,
 
-	Run: func(cmd *cobra.Command, args []string) { fmt.Println(buildinfo.BuildVersion) },
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Elisa CLI %v build %v branch %v. Compiled at %s\n",
+			buildinfo.BuildVersion,
+			buildinfo.GitRevision,
+			buildinfo.GitBranch,
+			buildinfo.BuildTime)
+	},
 }
 
 func init() {
