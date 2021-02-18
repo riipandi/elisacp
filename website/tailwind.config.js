@@ -3,18 +3,31 @@ const defaultColor = require('tailwindcss/colors')
 
 module.exports = {
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         sans: ['Gellix', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        gray: defaultColor.coolGray,
+        gray: defaultColor.trueGray,
         primary: defaultColor.rose,
         secondary: defaultColor.orange,
         accent: defaultColor.indigo
-      }
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.primary.500'),
+              '&:hover': {
+                color: theme('colors.primary.600')
+              }
+            }
+          }
+        }
+      })
     }
   },
   variants: {
@@ -24,6 +37,7 @@ module.exports = {
     // Additional first-party plugins
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/line-clamp')
   ]
 }

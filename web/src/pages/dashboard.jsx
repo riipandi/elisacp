@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import DefaultLayout from '../layouts/default'
 
 class Dashboard extends Component {
   render() {
     return (
-        <div>
-          <h2>Dashboard</h2>
-        </div>
-    );
+      <DefaultLayout>
+        <h2>Dashboard</h2>
+      </DefaultLayout>
+    )
   }
 }
 
-export default Dashboard;
+export default Dashboard

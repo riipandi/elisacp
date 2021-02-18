@@ -6,11 +6,11 @@ import (
 	"log"
 
 	"github.com/riipandi/elisacp/cmd/elcp/router"
-	"github.com/riipandi/elisacp/cmd/elcp/database/seeder"
 	"github.com/riipandi/elisacp/cmd/elcp/utils"
-	db "github.com/riipandi/elisacp/cmd/elcp/database"
+	// "github.com/riipandi/elisacp/cmd/elcp/database/seeder"
 	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
 	ctr "github.com/riipandi/elisacp/cmd/elcp/controllers"
+	db "github.com/riipandi/elisacp/cmd/elcp/database"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -29,7 +29,7 @@ func init() {
 	// Prepare all the things
 	utils.PrepareEnvironment()
 	db.ConnectDB()
-	seeder.DatabaseSeeder(db.DBConn)
+	// seeder.DatabaseSeeder(db.DBConn)
 }
 
 func main() {
