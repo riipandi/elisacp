@@ -2,15 +2,14 @@ package commands
 
 import (
 	"fmt"
-	"time"
 	"github.com/spf13/cobra"
 )
 
 var (
 	shortened = false
-	commit    = "xxxxxxx"
-	version   = "dev"
-	date      = time.Now().Format(time.RFC850)
+    version = "dev"
+    commit  = "none"
+    date    = "unknown"
 
 	versionCmd = &cobra.Command {
 		Use:   "version",

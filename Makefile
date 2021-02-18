@@ -7,12 +7,11 @@ BRANCH := $(shell git rev-parse --abbrev-ref HEAD | tr -d '\040\011\012\015\n')
 BUILD_PATH = $(BASEPATH)/target/release
 DEBUG_PATH = $(BASEPATH)/target/debug
 
-PACKAGE := github.com/riipandi/elisacp/cmd/eli/commands
+PACKAGE := github.com/riipandi/elisacp/cmd/eli
 
 LDFLAG_INFO = \
-  -X $(PACKAGE).GitRevision=$(REVISION) \
-  -X $(PACKAGE).GitBranch=$(BRANCH)\
-  -X $(PACKAGE).BuildVersion=$(BUILD_VERSION)
+  -X $(PACKAGE).commit=$(REVISION) \
+  -X $(PACKAGE).version=$(BUILD_VERSION)
 
 BUILD_CMD = go build -ldflags "-s -w $(LDFLAG_INFO)"
 BUILD_ENV = GOOS=linux GOARCH=amd64

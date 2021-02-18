@@ -1,5 +1,6 @@
 # Make sure to check the documentation at http://goreleaser.com
 project_name: elisacp
+dist: target
 
 env_files:
   github_token: .token
@@ -18,8 +19,8 @@ builds:
   - main: ./cmd/eli/main.go
     id: "eli"
     binary: eli
-    ldflags:
-    - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
+    # ldflags:
+    # - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
     goos:
       - linux
       - darwin
@@ -28,8 +29,8 @@ builds:
   - main: ./cmd/elcp/main.go
     id: "elcp"
     binary: elcp
-    ldflags:
-    - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
+    # ldflags:
+    # - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
     goos:
       - linux
       - darwin
@@ -58,7 +59,7 @@ release:
   # in case there is an indicator for this in the tag e.g. v1.0.0-rc1
   # If set to true, will mark the release as not ready for production.
   # Default is false.
-  # prerelease: auto
+  prerelease: auto
 
   # You can add extra pre-existing files to the release.
   # The filename on the release will be the last part of the path (base). If
