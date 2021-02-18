@@ -2,11 +2,11 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import logo from '../../assets/img/logo.svg'
 import { Link } from 'react-router-dom'
-import AuthLayout from '../../layouts/auth'
+import PlainLayout from '../../layouts/plain'
 
 function ResetPassword() {
   return (
-    <AuthLayout>
+    <PlainLayout>
       <div className="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img className="w-auto h-20 mx-auto" src={logo} alt="logo" />
@@ -64,7 +64,7 @@ function ResetPassword() {
             </div>
         </div>
       </div>
-    </AuthLayout>
+    </PlainLayout>
   )
 }
 

@@ -7,12 +7,15 @@
     "build": "NODE_ENV=production vite build"
   },
   "homepage": ".",
+  "start_url": ".",
   "proxy": "/api",
   "dependencies": {
     "axios": "^0.21.1",
     "formik": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.2.0",
     "rxjs": "^6.6.3",
     "yup": "^0.32.9"
