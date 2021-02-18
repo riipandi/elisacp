@@ -22,10 +22,11 @@ all: clean build_cli build_elcp compile
 compile: compile_cli compile_elcp
 
 release:
-	@GITHUB_TOKEN=$(shell cat .token) goreleaser release
+	@goreleaser release
 
 pre_release:
 	@goreleaser --snapshot --skip-publish --rm-dist
+	@goreleaser release --skip-publish
 
 clean:
 	@rm -fr cmd/elcp/static/public/*

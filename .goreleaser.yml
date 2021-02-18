@@ -1,5 +1,9 @@
 # Make sure to check the documentation at http://goreleaser.com
 project_name: elisacp
+
+env_files:
+  github_token: .token
+
 env:
   - CGO_ENABLED=0
 #   ldflags:
