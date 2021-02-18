@@ -1,8 +1,6 @@
 package config
 
-import (
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
-)
+import "github.com/riipandi/elisacp/cmd/elcp/utils"
 
 var (
 	DBUser = utils.GetEnVar("DB_USERNAME")
@@ -11,10 +9,3 @@ var (
 	DBHost = utils.GetEnVar("DB_HOST")
 	DBPort = utils.GetEnVar("DB_PORT")
 )
-
-//
-//type Config struct {
-//	DBDriver      string `mapstructure:"DB_DRIVER"`
-//	DBSource      string `mapstructure:"DB_SOURCE"`
-//	ServerAddress string `mapstructure:"SERVER_ADDRESS"`
-//}

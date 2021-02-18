@@ -3,6 +3,7 @@ package utils
 import (
 	"github.com/joho/godotenv"
 	"os"
+	"log"
 )
 
 // Get environment mode
@@ -16,16 +17,15 @@ func getEnv() string {
 
 // GetEnVar return value from dotenv file
 func GetEnVar(key string) string {
-	if getEnv() == "production" {
-		godotenv.Load("/etc/default/elisacp")
-	} else {
-		godotenv.Load(".env")
-	}
+	// if getEnv() == "production" {
+	// 	godotenv.Load("/etc/default/elisacp")
+	// } else {
+	// 	godotenv.Load(".env")
+	// }
 
-	//err := godotenv.Load(".env")
-    //if err != nil {
-    //    log.Fatalf("Error loading .env file")
-    //}
+	if err := godotenv.Load() ; err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
     return os.Getenv(key)
 }
