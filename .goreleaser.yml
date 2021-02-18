@@ -50,9 +50,6 @@ snapshot:
   name_template: "{{ .Tag }}-snapshot"
 
 release:
-  # Repo in which the release will be created.
-  # Default is extracted from the origin remote URL or empty if its private hosted.
-  # Note: it can only be one: either github, gitlab or gitea
   github:
     owner: riipandi
     name: elisacp
@@ -61,7 +58,7 @@ release:
   # in case there is an indicator for this in the tag e.g. v1.0.0-rc1
   # If set to true, will mark the release as not ready for production.
   # Default is false.
-  prerelease: auto
+  # prerelease: auto
 
   # You can add extra pre-existing files to the release.
   # The filename on the release will be the last part of the path (base). If
