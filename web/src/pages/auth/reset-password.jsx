@@ -1,5 +1,6 @@
-import React from 'react'
-import logo from '../../assets/img/logo.svg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/img/logo.svg';
 
 export default function ResetPassword() {
   return (
@@ -51,9 +52,9 @@ export default function ResetPassword() {
         </form>
         <p className="mt-2 text-sm text-center text-gray-600">
           Remember your password?
-          <a href="#" className="ml-1 font-medium text-primary-600 hover:text-primary-500">
+          <Link to="/" className="ml-1 font-medium text-primary-600 hover:text-primary-500">
             Sign in here
-          </a>
+          </Link>
         </p>
       </div>
     </div>

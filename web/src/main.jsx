@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import 'tailwindcss/tailwind.css';
-import App from './app';
+import Routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
-)
+);

@@ -1,7 +1,8 @@
-import React from 'react'
-import logo from '../../assets/img/logo.svg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/img/logo.svg';
 
-export default function Login() {
+function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-sm space-y-8">
@@ -66,11 +67,13 @@ export default function Login() {
         </form>
         <p className="mt-2 text-sm text-center text-gray-600">
           Forgot your password?
-          <a href="#" className="ml-1 font-medium text-primary-600 hover:text-primary-500">
+          <Link to="/reset-password" className="ml-1 font-medium text-primary-600 hover:text-primary-500">
             Reset here
-          </a>
+          </Link>
         </p>
       </div>
     </div>
   )
 }
+
+export default Login
