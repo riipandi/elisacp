@@ -21,7 +21,7 @@ import (
 const staticDir = "./cmd/elcp/static"
 
 var (
-	flagHostSsl = flag.String("secureHost", ":2080", "Address to listen, default is 2080")
+	flagHost = flag.String("host", ":2080", "Address to listen on HTTP")
 	flagProd = flag.Bool("prod", false, "Enable prefork in Production")
 )
 
@@ -70,19 +70,24 @@ func main() {
 		log.Fatal(app.Listen("localhost:2030"))
 	}()
 
-	// Listen for HTTPS on port 2080
-	// Create tls certificate
-	cer, err := tls.LoadX509KeyPair(cfg.SSLCertFile, cfg.SSLKeyFile)
+	// Listen for HTTPS on port 2443
+	go func() {
+		// Create tls certificate
+		cer, err := tls.LoadX509KeyPair(cfg.SSLCertFile, cfg.SSLKeyFile)
 
-	if err != nil { log.Fatal(err) }
-	config := &tls.Config{Certificates: []tls.Certificate{cer}}
+		if err != nil { log.Fatal(err) }
+		config := &tls.Config{Certificates: []tls.Certificate{cer}}
 
-	// Create custom listener
-	ln, err := tls.Listen("tcp", *flagHostSsl, config)
-	if err != nil {
-		log.Fatal(err)
-	}
+		// Create custom listener
+		ln, err := tls.Listen("tcp", "0.0.0.0:2443", config)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	// Start server with https/ssl enabled
-	log.Fatal(app.Listener(ln)) // go run main.go -host=:2080
+		// Start server with https/ssl enabled
+		log.Fatal(app.Listener(ln)) // go run main.go -host=:2443
+	}()
+
+	// Listen for HTTP on port 2080
+	log.Fatal(app.Listen(*flagHost)) // go run main.go -host=:2080
 }
