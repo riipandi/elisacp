@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import 'tailwindcss/tailwind.css'
 import Routes from './routes'
+import { history } from './utils';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={history}>
       <Routes />
     </Router>
   </React.StrictMode>,

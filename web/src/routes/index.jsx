@@ -5,6 +5,7 @@ import Login from '../pages/auth/login'
 import ResetPassword from '../pages/auth/reset-password'
 import Dashboard from '../pages/dashboard'
 import Users from '../pages/users'
+import { PrivateRoute } from '../components/private-route';
 
 /**
   * References:
@@ -14,10 +15,10 @@ import Users from '../pages/users'
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Login} />
+      <PrivateRoute exact path="/" component={Dashboard} />
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/about" component={About} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/login" component={Login} />
       <Route path="/user/:id" component={Users} />
     </Switch>
   )

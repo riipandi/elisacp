@@ -14,7 +14,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "rxjs": "^6.6.3"
+    "rxjs": "^6.6.3",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@graywolfai/react-heroicons": "^1.2.3",
