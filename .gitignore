@@ -4,12 +4,13 @@
 .env
 .env.production
 .env.testing
+.token
 .Trashes
-*.sqlite
-*.sqlite-journal
-*.idea/*
 *.idea
 *.idea/.*
+*.idea/*
+*.sqlite
+*.sqlite-journal
 Thumbs.db
 
 # Binaries for programs and plugins
@@ -43,6 +44,7 @@ pnpm-lock.yaml
 yarn.lock
 
 # Project stuff
+dist/
 target/
 cmd/elcp/static/public/*
 !cmd/elcp/static/public/.gitkeep

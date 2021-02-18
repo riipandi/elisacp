@@ -7,11 +7,10 @@ import (
 )
 
 var (
-	shortened    = false
-	GitRevision  = "xxxxxxx"
-	GitBranch    = "master"
-	BuildVersion = "dev"
-	BuildTime    = time.Now().Format(time.RFC850)
+	shortened = false
+	commit    = "xxxxxxx"
+	version   = "dev"
+	date      = time.Now().Format(time.RFC850)
 
 	versionCmd = &cobra.Command {
 		Use:   "version",
@@ -19,10 +18,9 @@ var (
 		Long: `This command will display application information.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			if shortened {
-				fmt.Println(BuildVersion)
+				fmt.Println(version)
 			} else {
-				fmt.Printf("Elisa CLI %v build %v branch %v. Compiled at %s\n",
-					BuildVersion, GitRevision, GitBranch, BuildTime)
+				fmt.Printf("Elisa CLI %v build %v. Compiled at %s\n", version, commit, date)
 			}
 			return
 		},

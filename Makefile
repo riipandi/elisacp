@@ -19,7 +19,13 @@ BUILD_ENV = GOOS=linux GOARCH=amd64
 
 all: clean build_cli build_elcp compile
 
-release: compile_cli compile_elcp
+compile: compile_cli compile_elcp
+
+release:
+	@GITHUB_TOKEN=$(shell cat .token) goreleaser release
+
+pre_release:
+	@goreleaser --snapshot --skip-publish --rm-dist
 
 clean:
 	@rm -fr cmd/elcp/static/public/*

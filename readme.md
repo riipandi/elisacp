@@ -32,6 +32,22 @@ make rundev
 
 > Go to `http://localhost:2080`:
 
+### Create Release
+```sh
+# Prepare Github token
+touch .token
+echo 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' > .token
+
+# Delete tag if exists
+git tag -d v0.1.0
+git push --delete origin v0.1.0
+
+git tag -a v0.1.0 -m "Initial release"
+git push origin v0.1.0
+make pre_release
+make release
+```
+
 ## Things to know
 #### Make Commands
 ```
