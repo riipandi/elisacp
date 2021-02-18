@@ -4,6 +4,12 @@ import About from '../pages/about'
 import Login from '../pages/auth/login'
 import ResetPassword from '../pages/auth/reset-password'
 import Dashboard from '../pages/dashboard'
+import Users from '../pages/users'
+
+/**
+  * References:
+ * https://github.com/Mediumtutorial/react-router-medium
+*/
 
 const Routes = () => {
   return (
@@ -12,6 +18,7 @@ const Routes = () => {
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/about" component={About} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/user/:id" component={Users} />
     </Switch>
   )
 }
