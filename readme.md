@@ -42,8 +42,8 @@ echo 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' > .token
 git tag -d v0.1.0
 git push --delete origin v0.1.0
 
-git tag -a v0.1.0 -m "Initial release"
-git push origin v0.1.0
+git tag -a 0.1.0 -m "Initial release"
+git push origin 0.1.0
 make pre_release
 make release
 ```
