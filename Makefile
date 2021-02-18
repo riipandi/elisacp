@@ -8,7 +8,12 @@ RELEASE_PATH = $(BASEPATH)/target/release
 BUILD_PATH = $(BASEPATH)/target/debug
 
 PACKAGE := github.com/riipandi/elisacp/cmd/eli
-LDFLAG_INFO = -X main.GitRevision=$(REVISION) -X main.GitBranch=$(BRANCH) -X main.BuildVersion=$(BUILD_VERSION)
+
+LDFLAG_INFO = \
+  -X $(PACKAGE).GitRevision=$(REVISION) \
+  -X $(PACKAGE).GitBranch=$(BRANCH)\
+  -X $(PACKAGE).BuildVersion=$(BUILD_VERSION)
+
 BUILD_CMD = go build -ldflags "-s -w $(LDFLAG_INFO)"
 BUILD_ENV = GOOS=linux GOARCH=amd64
 
