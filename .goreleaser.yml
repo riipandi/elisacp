@@ -6,8 +6,6 @@ env_files:
 
 env:
   - CGO_ENABLED=0
-#   ldflags:
-#   - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
 
 before:
   hooks:
@@ -20,6 +18,8 @@ builds:
   - main: ./cmd/eli/main.go
     id: "eli"
     binary: eli
+    ldflags:
+    - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
     goos:
       - linux
       - darwin
@@ -28,6 +28,8 @@ builds:
   - main: ./cmd/elcp/main.go
     id: "elcp"
     binary: elcp
+    ldflags:
+    - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}}
     goos:
       - linux
       - darwin
@@ -36,12 +38,10 @@ builds:
 
 archives:
   - replacements:
-      386: x86
       amd64: x64
     files:
       - license.txt
-    #   - docs/*
-    #   - templates/**/*
+      - docs/*
 
 checksum:
   name_template: 'checksums.txt'
