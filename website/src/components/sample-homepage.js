@@ -111,7 +111,7 @@ export default function SampleHomepage({}) {
               </div>
               <div className="relative p-6 bg-white rounded-tr-lg group focus-within:ring-2 focus-within:ring-inset focus-within:ring-secondary-500">
                 <div>
-                  <span className="inline-flex p-3 text-purple-700 rounded-lg bg-purple-50 ring-4 ring-white">
+                  <span className="inline-flex p-3 text-primary-700 rounded-lg bg-primary-50 ring-4 ring-white">
                     {/* Heroicon name: badge-check */}
                     <svg
                       className="w-6 h-6"

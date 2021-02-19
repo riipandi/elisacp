@@ -27,7 +27,7 @@ class Login extends Component {
     formikProps.setStatus()
     this.setState({ loading: true })
     setTimeout(() => {
-      authenticationService.login(values.username, values.password).then((user) => {
+      authenticationService.login(values.identity, values.password).then((user) => {
         const { from } = this.props.location.state || { from: { pathname: '/' } }
         this.props.history.push(from)
       }, (error) => {
@@ -54,9 +54,9 @@ class Login extends Component {
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
               <Formik
-                initialValues = {{ username: '', password: '' }}
+                initialValues = {{ identity: '', password: '' }}
                 validationSchema = {Yup.object().shape({
-                    username: Yup.string().required('Username is required'),
+                    identity: Yup.string().required('Username or email is required'),
                     password: Yup.string().required('Password is required')
                 })}
                 onSubmit={this.submitForm.bind(this)}
@@ -65,18 +65,18 @@ class Login extends Component {
                   <Form className="space-y-5">
                     {authStatus && <AlertInline message={authStatus} color="yellow" />}
                     <div>
-                      <label htmlFor="username" className="sr-only">
+                      <label htmlFor="identity" className="sr-only">
                         Username
                       </label>
                       <div className="mt-1">
                         <Field
                           type="text"
-                          name="username"
-                          placeholder="Username"
-                          className={'block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm' + (errors.username && touched.username ? ' border-red-500' : '')}
+                          name="identity"
+                          placeholder="Username or email"
+                          className={'block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm' + (errors.identity && touched.identity ? ' border-red-500' : '')}
                         />
                         <ErrorMessage
-                          name="username"
+                          name="identity"
                           component="span"
                           className="pt-1 mx-1 text-xs text-red-500"
                         />

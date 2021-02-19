@@ -9,7 +9,7 @@ var password, _ = utils.HashPassword("secret")
 
 var users = []model.User{
 	{
-		Name:     "Aris Ripandi",
+		Name:     "Admin Sistem",
 		Email:    "admin@example.com",
 		Username: "admin",
 		Password: password,

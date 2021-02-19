@@ -14,10 +14,7 @@ import (
 func getUserByEmail(e string) (*model.User, error) {
 	db := database.DBConn
 	var user model.User
-	if err := db.Where(&model.User{Email: e}).Find(&user).Error; err != nil {
-		//if gorm.IsRecordNotFoundError(err) {
-		//	return nil, nil
-		//}
+	if err := db.Where(&model.User{Email: e}).First(&user).Error; err != nil {
 		return nil, err
 	}
 	return &user, nil
@@ -26,10 +23,7 @@ func getUserByEmail(e string) (*model.User, error) {
 func getUserByUsername(u string) (*model.User, error) {
 	db := database.DBConn
 	var user model.User
-	if err := db.Where(&model.User{Username: u}).Find(&user).Error; err != nil {
-		//if gorm.IsRecordNotFoundError(err) {
-		//	return nil, nil
-		//}
+	if err := db.Where(&model.User{Username: u}).First(&user).Error; err != nil {
 		return nil, err
 	}
 	return &user, nil
@@ -41,10 +35,12 @@ func Login(c *fiber.Ctx) error {
 		Identity string `json:"identity"`
 		Password string `json:"password"`
 	}
+
 	type UserData struct {
 		ID       uint   `json:"id"`
 		Username string `json:"username"`
 		Email    string `json:"email"`
+		Name     string `json:"name"`
 		Password string `json:"password"`
 	}
 
@@ -55,8 +51,9 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).
 			JSON(fiber.Map{"status": "error", "message": "Error on login request", "data": err})
 	}
+
 	identity := input.Identity
-	pass := input.Password
+	password := input.Password
 
 	email, err := getUserByEmail(identity)
 	if err != nil {
@@ -80,6 +77,7 @@ func Login(c *fiber.Ctx) error {
 			ID:       user.ID,
 			Username: user.Username,
 			Email:    user.Email,
+			Name:     user.Name,
 			Password: user.Password,
 		}
 	} else {
@@ -87,11 +85,12 @@ func Login(c *fiber.Ctx) error {
 			ID:       email.ID,
 			Username: email.Username,
 			Email:    email.Email,
+			Name:     email.Name,
 			Password: email.Password,
 		}
 	}
 
-	if !utils.CheckPasswordHash(pass, ud.Password) {
+	if !utils.CheckPasswordHash(password, ud.Password) {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "error", "message": "Invalid password", "data": nil})
 	}
 
@@ -107,5 +106,11 @@ func Login(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
-	return c.JSON(fiber.Map{"status": "success", "message": "Success login", "accessToken": t})
+	return c.JSON(fiber.Map {
+		"status": "success",
+		"accessToken": t,
+		"email": ud.Email,
+		"name": ud.Name,
+		"username": ud.Username,
+	})
 }
