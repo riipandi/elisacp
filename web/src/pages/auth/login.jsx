@@ -12,7 +12,10 @@ import AlertInline from '../../components/alert-inline'
 class Login extends Component {
   constructor(props) {
     super(props)
-    this.state = { loading: false }
+    this.state = {
+      loading: false,
+      authStatus: null
+    }
 
     // redirect to home if already logged in
     if (authenticationService.currentUserValue) {
@@ -20,8 +23,9 @@ class Login extends Component {
     }
   }
 
-  async onSubmit(values, formikProps) {
+  async submitForm(values, formikProps) {
     formikProps.setStatus()
+    this.setState({ loading: true })
     setTimeout(() => {
       authenticationService.login(values.username, values.password).then((user) => {
         const { from } = this.props.location.state || { from: { pathname: '/' } }
@@ -29,19 +33,20 @@ class Login extends Component {
       }, (error) => {
         formikProps.setSubmitting(false)
         formikProps.setStatus(error)
+        this.setState({ authStatus: error })
       })
     }, 1000)
   };
 
   render() {
-    const { loading } = this.state
+    const { loading, authStatus } = this.state
 
     return (
       <PlainLayout title="Login">
         <PageLoader loading={loading} />
         <div className="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img className="w-auto h-20 mx-auto" src={logo} alt="logo" />
+            <img className="w-auto h-16 mx-auto" src={logo} alt="logo" />
             <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
               Sign in to Control Panel
             </h2>
@@ -54,11 +59,11 @@ class Login extends Component {
                     username: Yup.string().required('Username is required'),
                     password: Yup.string().required('Password is required')
                 })}
-                onSubmit={this.onSubmit}
+                onSubmit={this.submitForm.bind(this)}
               >
-                {({ errors, status, touched, isSubmitting }) => (
+                {({ errors, touched, isSubmitting }) => (
                   <Form className="space-y-5">
-                    {status && <AlertInline message={status} color="yellow" />}
+                    {authStatus && <AlertInline message={authStatus} color="yellow" />}
                     <div>
                       <label htmlFor="username" className="sr-only">
                         Username
@@ -101,8 +106,8 @@ class Login extends Component {
                         disabled={isSubmitting}
                         className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                       >
-                        {isSubmitting && <img src={loadersvg} className="w-auto h-4" alt="loader" />}
-                        {!isSubmitting && <span>Sign in</span>}
+                        {loading && <img src={loadersvg} className="w-auto h-4" alt="loader" />}
+                        {!loading && <span>Sign in</span>}
                       </button>
                     </div>
                   </Form>
