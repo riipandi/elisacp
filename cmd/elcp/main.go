@@ -66,7 +66,7 @@ func main() {
 
 	// Setup static files and SPA router for frontend
 	app.Static("/", staticDir + "/public")
-	app.Get("/", func(ctx *fiber.Ctx) error {
+	app.Get("/*", func(ctx *fiber.Ctx) error {
 		return ctx.SendFile(staticDir + "/public/index.html")
 	})
 

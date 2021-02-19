@@ -64,7 +64,7 @@ runweb:
 	@cd web && npm install --silent && npm run dev
 
 rundev: build_frontend
-	@go run cmd/elcp/main.go
+	@air -c cmd/elcp/.air.conf
 
 # --------------------------------------------------------------------------------
 # ElisaCP website

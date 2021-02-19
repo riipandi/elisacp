@@ -4,13 +4,17 @@ go 1.15
 
 require (
 	github.com/andybalholm/brotli v1.0.1 // indirect
+	github.com/cosmtrek/air v1.21.2
+	github.com/creack/pty v1.1.11 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/fatih/color v1.10.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gofiber/fiber/v2 v2.5.0
 	github.com/gofiber/jwt/v2 v2.1.0
 	github.com/gofiber/redirect/v2 v2.1.0
 	github.com/gofiber/websocket/v2 v2.0.2
 	github.com/gopherjs/gopherjs v0.0.0-20210202160940-bed99a852dfe // indirect
+	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/joho/godotenv v1.3.0
 	github.com/klauspost/compress v1.11.7 // indirect
 	github.com/kr/text v0.2.0 // indirect
@@ -28,8 +32,8 @@ require (
 	github.com/stretchr/testify v1.7.0 // indirect
 	github.com/valyala/fasthttp v1.21.0 // indirect
 	go.hein.dev/go-version v0.1.0
-	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
-	golang.org/x/sys v0.0.0-20210217105451-b926d437f341 // indirect
+	golang.org/x/crypto v0.0.0-20210218145215-b8e89b74b9df
+	golang.org/x/sys v0.0.0-20210218155724-8ebf48af031b // indirect
 	golang.org/x/text v0.3.5 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.62.0 // indirect
