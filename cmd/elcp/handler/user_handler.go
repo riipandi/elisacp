@@ -40,7 +40,7 @@ func validUser(id string, p string) bool {
 	if user.Username == "" {
 		return false
 	}
-	if !utils.CheckPasswordHash(p, user.Password) {
+	if !helper.CheckPasswordHash(p, user.Password) {
 		return false
 	}
 	return true

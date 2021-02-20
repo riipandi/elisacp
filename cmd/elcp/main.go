@@ -28,7 +28,7 @@ var (
 
 func init() {
 	// Prepare all the things
-	utils.PrepareEnvironment()
+	helper.PrepareEnvironment()
 	db.ConnectDB()
 	// seeder.DatabaseSeeder(db.DBConn)
 }

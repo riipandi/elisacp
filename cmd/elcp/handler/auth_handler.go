@@ -11,14 +11,14 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func getUserByEmail(e string) (*model.User, error) {
-	db := database.DBConn
-	var user model.User
-	if err := db.Where(&model.User{Email: e}).First(&user).Error; err != nil {
-		return nil, err
-	}
-	return &user, nil
-}
+// func getUserByEmail(e string) (*model.User, error) {
+// 	db := database.DBConn
+// 	var user model.User
+// 	if err := db.Where(&model.User{Email: e}).First(&user).Error; err != nil {
+// 		return nil, err
+// 	}
+// 	return &user, nil
+// }
 
 func getUserByUsername(u string) (*model.User, error) {
 	db := database.DBConn
@@ -52,27 +52,11 @@ func Login(c *fiber.Ctx) error {
 			JSON(fiber.Map{"status": "error", "message": "Error on login request", "data": err})
 	}
 
-	identity := input.Identity
-	password := input.Password
-
-	email, err := getUserByEmail(identity)
-	if err != nil {
-		return c.Status(fiber.StatusUnauthorized).
-			JSON(fiber.Map{"status": "error", "message": "Error on email", "data": err})
-	}
-
-	user, err := getUserByUsername(identity)
-	if err != nil {
-		return c.Status(fiber.StatusUnauthorized).
-			JSON(fiber.Map{"status": "error", "message": "Error on username", "data": err})
-	}
-
-	if email == nil && user == nil {
+	user, err := getUserByUsername(input.Identity)
+	if user == nil || err != nil {
 		return c.Status(fiber.StatusUnauthorized).
 			JSON(fiber.Map{"status": "error", "message": "User not found", "data": err})
-	}
-
-	if email == nil {
+	} else {
 		ud = UserData {
 			ID:       user.ID,
 			Username: user.Username,
@@ -80,22 +64,13 @@ func Login(c *fiber.Ctx) error {
 			Name:     user.Name,
 			Password: user.Password,
 		}
-	} else {
-		ud = UserData {
-			ID:       email.ID,
-			Username: email.Username,
-			Email:    email.Email,
-			Name:     email.Name,
-			Password: email.Password,
-		}
 	}
 
-	if !utils.CheckPasswordHash(password, ud.Password) {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "error", "message": "Invalid password", "data": nil})
+	if !helper.CheckPasswordHash(input.Password, ud.Password) {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "error", "message": "Invalid password"})
 	}
 
 	token := jwt.New(jwt.SigningMethodHS256)
-
 	claims := token.Claims.(jwt.MapClaims)
 	claims["username"] = ud.Username
 	claims["user_id"] = ud.ID
@@ -114,3 +89,18 @@ func Login(c *fiber.Ctx) error {
 		"username": ud.Username,
 	})
 }
+
+// func getIdentity(identity string) string {
+// 	if isEmail(identity) {
+// 		return "email"
+// 	}
+// 	return "username"
+// }
+
+// func isEmail(identity string) bool {
+// 	re := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+// 	if re.MatchString(identity) {
+// 		return true
+// 	}
+// 	return false
+// }

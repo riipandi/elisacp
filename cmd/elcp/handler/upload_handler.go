@@ -13,7 +13,7 @@ func UploadSingleFile(c *fiber.Ctx) error {
 		return c.Status(500).JSON(err)
 	}
 
-	targetPath := fmt.Sprintf(utils.SetUploadDirectory() + "/%s", file.Filename)
+	targetPath := fmt.Sprintf(helper.SetUploadDirectory() + "/%s", file.Filename)
 	if err := c.SaveFile(file, targetPath); err != nil {
 		return c.Status(500).JSON(err)
 	}
@@ -39,7 +39,7 @@ func UploadMultiFile(c *fiber.Ctx) error {
 		fmt.Println(file.Filename, file.Size, file.Header["Content-Type"][0])
 
 		// Save the files to disk:
-		targetPath := fmt.Sprintf(utils.SetUploadDirectory() + "/%s", file.Filename)
+		targetPath := fmt.Sprintf(helper.SetUploadDirectory() + "/%s", file.Filename)
 		err := c.SaveFile(file, targetPath)
 
 		// Check for errors

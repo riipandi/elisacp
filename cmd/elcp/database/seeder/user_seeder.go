@@ -5,7 +5,7 @@ import (
 	"github.com/riipandi/elisacp/cmd/elcp/helper"
 )
 
-var password, _ = utils.HashPassword("secret")
+var password, _ = helper.HashPassword("secret")
 
 var users = []model.User{
 	{
