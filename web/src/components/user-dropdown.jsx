@@ -3,7 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 
 function UserDropdown({ logout }) {
   return (
-      <Menu as="div" className="relative inline-block px-3 mt-6">
+      <Menu as="div" className="relative inline-block px-3 mt-5">
         {({ open }) => (
           <>
             <Menu.Button

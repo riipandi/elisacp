@@ -12,12 +12,13 @@ const logout = () => {
 export default function NavigationDesktop() {
   return (
   <div className="hidden lg:flex lg:flex-shrink-0">
-    <div className="flex flex-col w-64 pt-5 pb-4 bg-gray-100 border-r border-gray-200">
-      <div className="flex items-center flex-shrink-0 px-6">
+    <div className="flex flex-col w-64 pb-4 bg-gray-100 border-r border-gray-200">
+      <div className="inline-flex items-center flex-shrink-0 px-6 py-4 mt-1">
         <img className="w-auto h-8" src={logo} alt="logo" />
+        <span className="ml-3 text-2xl font-bold tracking-wide text-primary-600">Elisa Panel</span>
       </div>
       {/* Sidebar component, swap this element with another sidebar if you like */}
-      <div className="flex flex-col flex-1 h-0 overflow-y-auto">
+      <div className="flex flex-col flex-1 h-0 overflow-y-auto ">
         {/* User account dropdown */}
         <UserDropdown open={open} logout={logout}  />
         {/* Sidebar Search */}
