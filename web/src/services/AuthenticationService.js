@@ -1,6 +1,5 @@
 import { BehaviorSubject } from 'rxjs'
-import { apiUrl } from '../config'
-import { handleResponse } from '../utils'
+import { apiUrl, handleResponse } from '../utils'
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')))
 

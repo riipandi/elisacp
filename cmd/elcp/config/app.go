@@ -1,6 +1,6 @@
 package config
 
-import "github.com/riipandi/elisacp/cmd/elcp/utils"
+import "github.com/riipandi/elisacp/cmd/elcp/helper"
 
 var (
 	AppSecret   = utils.GetEnv("APP_SECRET")

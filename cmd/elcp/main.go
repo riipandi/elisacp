@@ -6,10 +6,10 @@ import (
 	"log"
 
 	"github.com/riipandi/elisacp/cmd/elcp/router"
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	"github.com/riipandi/elisacp/cmd/elcp/helper"
 	// "github.com/riipandi/elisacp/cmd/elcp/database/seeder"
 	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
-	ctr "github.com/riipandi/elisacp/cmd/elcp/controllers"
+	ctr "github.com/riipandi/elisacp/cmd/elcp/handler"
 	db "github.com/riipandi/elisacp/cmd/elcp/database"
 
 	"github.com/gofiber/fiber/v2"

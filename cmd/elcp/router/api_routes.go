@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gofiber/fiber/v2"
-	ctr "github.com/riipandi/elisacp/cmd/elcp/controllers"
+	ctr "github.com/riipandi/elisacp/cmd/elcp/handler"
 	"github.com/riipandi/elisacp/cmd/elcp/middleware"
 )
 
@@ -16,8 +16,8 @@ func SetupRoutes(app *fiber.App) {
 
 	// User routes
 	user := api.Group("/users")
-	user.Get("/", ctr.GetUsers)
-	user.Get("/:id", ctr.GetUser)
+	user.Get("/", ctr.GetAllUsers)
+	user.Get("/:id", ctr.GetUserById)
 	user.Post("/", middleware.Protected(), ctr.CreateUser)
 	user.Patch("/:id", middleware.Protected(), ctr.UpdateUser)
 	user.Delete("/:id", middleware.Protected(), ctr.DeleteUser)

@@ -1,9 +1,9 @@
-package controllers
+package handler
 
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	"github.com/riipandi/elisacp/cmd/elcp/helper"
 )
 
 func UploadSingleFile(c *fiber.Ctx) error {

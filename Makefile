@@ -63,8 +63,10 @@ compile_elcp:
 runweb:
 	@cd web && npm install --silent && npm run dev
 
-rundev: build_frontend
+runapi:
 	@air -c cmd/elcp/.air.conf
+
+rundev: build_frontend runapi
 
 # --------------------------------------------------------------------------------
 # ElisaCP website

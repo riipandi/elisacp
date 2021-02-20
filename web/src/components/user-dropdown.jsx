@@ -1,10 +1,9 @@
 import React from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
-function UserDropdown({ open, logout }) {
+function UserDropdown({ logout }) {
   return (
-    <div className="relative inline-block px-3 mt-6 text-left">
-      <Menu>
+      <Menu as="div" className="relative inline-block px-3 mt-6">
         {({ open }) => (
           <>
             <Menu.Button
@@ -52,7 +51,7 @@ function UserDropdown({ open, logout }) {
             >
               <Menu.Items
                 static
-                className="absolute left-0 right-0 z-10 mx-3 mt-1 origin-top bg-white divide-y divide-gray-200 rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
+                className="absolute left-0 right-0 z-auto mx-3 mt-1 origin-top bg-white divide-y divide-gray-200 rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"
@@ -110,7 +109,6 @@ function UserDropdown({ open, logout }) {
           </>
         )}
       </Menu>
-    </div>
   )
 }
 

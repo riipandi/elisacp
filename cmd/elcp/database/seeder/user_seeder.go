@@ -2,7 +2,7 @@ package seeder
 
 import (
 	"github.com/riipandi/elisacp/cmd/elcp/model"
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	"github.com/riipandi/elisacp/cmd/elcp/helper"
 )
 
 var password, _ = utils.HashPassword("secret")

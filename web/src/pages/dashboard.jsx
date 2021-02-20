@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 import DefaultLayout from '../layouts/default'
 import PageLoader from '../components/page-loader'
 import { userService, authenticationService } from '../services'
+import { ApiRequest } from '../utils'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,10 +17,11 @@ class Dashboard extends Component {
 
   async loadData() {
     setTimeout(() => {
-      userService.getAll().then((users) => this.setState({
-        loading: false,
-        users
-      }))
+      ApiRequest().get(`https://jsonplaceholder.typicode.com/users`)
+      .then(response => {
+        const users = response.data;
+        this.setState({ users, loading: false });
+      })
     }, 800)
   }
 
@@ -29,21 +31,10 @@ class Dashboard extends Component {
 
   render() {
     const { currentUser, loading, users } = this.state
-
     return (
       <>
         <PageLoader loading={loading} />
         <DefaultLayout title="Dashboard">
-            {/* {users && (
-            <ul>
-              {users.map((user) => (
-                <li key="{user.ID}">
-                  {user.name} - {user.email}
-                </li>
-              ))}
-            </ul>
-          )} */}
-
       {/* Page title & actions */}
       <div className="px-4 py-4 border-b border-gray-200 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex-1 min-w-0">
@@ -146,10 +137,10 @@ class Dashboard extends Component {
             <thead>
               <tr className="border-t border-gray-200">
                 <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                  <span className="lg:pl-2">Project</span>
+                  <span className="lg:pl-2">Name</span>
                 </th>
                 <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                  Members
+                  Email Address
                 </th>
                 <th className="hidden px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 md:table-cell bg-gray-50">
                   Last updated
@@ -157,29 +148,20 @@ class Dashboard extends Component {
                 <th className="py-3 pr-6 text-xs font-medium tracking-wider text-right text-gray-500 uppercase border-b border-gray-200 bg-gray-50" />
               </tr>
             </thead>
+            {users && (
             <tbody className="bg-white divide-y divide-gray-100">
-              <tr>
+              {users.map((user) => (
+              <tr key={user.id}>
                 <td className="w-full px-6 py-3 text-sm font-medium text-gray-900 max-w-0 whitespace-nowrap">
                   <div className="flex items-center space-x-3 lg:pl-2">
-                    <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600" aria-hidden="true" />
+                    <div className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-green-600" aria-hidden="true" />
                     <a href="#" className="truncate hover:text-gray-600">
-                      <span>
-                        GraphQL API
-                        <span className="font-normal text-gray-500">in Engineering</span>
-                      </span>
+                        <span className="font-normal text-gray-500">{user.name}</span>
                     </a>
                   </div>
                 </td>
                 <td className="px-6 py-3 text-sm font-medium text-gray-500">
-                  <div className="flex items-center space-x-2">
-                    <div className="flex flex-shrink-0 -space-x-1">
-                      <img className="w-6 h-6 rounded-full max-w-none ring-2 ring-white" src="https://unavatar.now.sh/github/riipandi" alt="user avatar" />
-                      <img className="w-6 h-6 rounded-full max-w-none ring-2 ring-white" src="https://unavatar.now.sh/github/riipandi" alt="user avatar" />
-                      <img className="w-6 h-6 rounded-full max-w-none ring-2 ring-white" src="https://unavatar.now.sh/github/riipandi" alt="user avatar" />
-                      <img className="w-6 h-6 rounded-full max-w-none ring-2 ring-white" src="https://unavatar.now.sh/github/riipandi" alt="user avatar" />
-                    </div>
-                    <span className="flex-shrink-0 text-xs font-medium leading-5">+8</span>
-                  </div>
+                  {user.email}
                 </td>
                 <td className="hidden px-6 py-3 text-sm text-right text-gray-500 md:table-cell whitespace-nowrap">
                   March 17, 2020
@@ -249,8 +231,9 @@ class Dashboard extends Component {
                   </div>
                 </td>
               </tr>
-              {/* More items... */}
+                    ))}
             </tbody>
+              )}
           </table>
         </div>
       </div>
@@ -259,5 +242,6 @@ class Dashboard extends Component {
     )
   }
 }
+import { from } from 'rxjs'
 
 export default Dashboard

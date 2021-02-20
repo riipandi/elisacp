@@ -1,4 +1,4 @@
-package controllers
+package handler
 
 import "github.com/gofiber/fiber/v2"
 
@@ -11,6 +11,7 @@ func Index(c *fiber.Ctx) error {
 
 // NotFound returns custom 404 page
 func ErrorNotFound(c *fiber.Ctx) error {
+	c.Accepts("application/json")
     // return c.Status(404).SendFile("./static/private/404.html")
     return c.Status(404).JSON(fiber.Map{
         "message": "Resource not found",

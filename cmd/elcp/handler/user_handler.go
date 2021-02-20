@@ -1,9 +1,9 @@
-package controllers
+package handler
 
 import (
 	"github.com/riipandi/elisacp/cmd/elcp/database"
 	"github.com/riipandi/elisacp/cmd/elcp/model"
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	"github.com/riipandi/elisacp/cmd/elcp/helper"
 
 	"strconv"
 
@@ -47,7 +47,7 @@ func validUser(id string, p string) bool {
 }
 
 // GetUsers get all user
-func GetUsers(c *fiber.Ctx) error {
+func GetAllUsers(c *fiber.Ctx) error {
 	db := database.DBConn
 	var user model.User
 	db.Find(&user)
@@ -55,7 +55,7 @@ func GetUsers(c *fiber.Ctx) error {
 }
 
 // GetUser get a user
-func GetUser(c *fiber.Ctx) error {
+func GetUserById(c *fiber.Ctx) error {
 	id := c.Params("id")
 	db := database.DBConn
 	var user model.User

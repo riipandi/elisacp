@@ -1,10 +1,10 @@
-package controllers
+package handler
 
 import (
 	cfg "github.com/riipandi/elisacp/cmd/elcp/config"
 	"github.com/riipandi/elisacp/cmd/elcp/database"
 	"github.com/riipandi/elisacp/cmd/elcp/model"
-	"github.com/riipandi/elisacp/cmd/elcp/utils"
+	"github.com/riipandi/elisacp/cmd/elcp/helper"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
