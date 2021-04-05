@@ -1,4 +1,4 @@
-# ElisaCP
+# [WIP] ElisaCP
 
 ![Release](https://img.shields.io/github/release/riipandi/elisacp.svg)
 <!-- ![Test](https://github.com/riipandi/elisacp/workflows/Test/badge.svg)
